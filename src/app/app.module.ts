@@ -25,6 +25,8 @@ const appRoutes: Routes = [
   {path: 'cars', component: CarsGridComponent},
   {path: 'userdata', component: UserdataComponent},
   {path: 'orders', component: OrderListComponent},
+  {path: 'tires', component: TiresGridComponent},
+  {path: 'car-services', component: CarServicesComponent},
   {path: 'not-found', component: PageNotFoundComponent},
   {path: '**', redirectTo: '/not-found'}
 ];
@@ -54,4 +56,5 @@ const appRoutes: Routes = [
   providers: [CookieService],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
