@@ -15,6 +15,8 @@ import {RouterModule, Routes} from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { UserdataComponent } from './userdata/userdata.component';
 import { OrderListComponent } from './order-list/order-list.component';
+import { TiresGridComponent } from './tires-grid/tires-grid.component';
+import { CarServicesComponent } from './car-services/car-services.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -23,6 +25,8 @@ const appRoutes: Routes = [
   {path: 'cars', component: CarsGridComponent},
   {path: 'userdata', component: UserdataComponent},
   {path: 'orders', component: OrderListComponent},
+  {path: 'tires', component: TiresGridComponent},
+  {path: 'car-services', component: CarServicesComponent},
   {path: 'not-found', component: PageNotFoundComponent},
   {path: '**', redirectTo: '/not-found'}
 ];
@@ -39,7 +43,9 @@ const appRoutes: Routes = [
     HomeComponent,
     PageNotFoundComponent,
     UserdataComponent,
-    OrderListComponent
+    OrderListComponent,
+    TiresGridComponent,
+    CarServicesComponent
   ],
   imports: [
     BrowserModule,
@@ -50,4 +56,5 @@ const appRoutes: Routes = [
   providers: [CookieService],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
