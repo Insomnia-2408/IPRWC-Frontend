@@ -1,0 +1,24 @@
+<div class="container" *ngIf="!service.isLoggedIn()">
+  <h1>Login</h1>
+  <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" placeholder="Enter email" class="form-control" required ngModel>
+    </div>
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" placeholder="Enter password" class="form-control" required ngModel>
+    </div>
+    <div class="form-group">
+      <button type="submit" class=" btn btn-primary">Log in</button>
+    </div>
+  </form>
+  <a routerLink="/register">Register here</a>
+</div>
+<div class="container" *ngIf="service.isLoggedIn()">
+  <h1 align="center">You're logged in, enjoy the website!</h1>
+  <br>
+  <div style="text-align: center">
+    <button class="btn btn-primary" routerLink="/">Return to homepage</button>
+  </div>
+</div>
