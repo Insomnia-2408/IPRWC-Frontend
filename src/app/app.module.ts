@@ -17,16 +17,22 @@ import { UserdataComponent } from './userdata/userdata.component';
 import { OrderListComponent } from './order-list/order-list.component';
 import { TiresGridComponent } from './tires-grid/tires-grid.component';
 import { CarServicesComponent } from './car-services/car-services.component';
+import { CarsItemComponent } from './cars-item/cars-item.component';
+import {CarModel} from './models/CarModel';
+import { ShoppingcartComponent } from './shoppingcart/shoppingcart.component';
+import { ErrorAlertComponent } from './error-alert/error-alert.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'cars', component: CarsGridComponent},
+  {path: 'cars-item', component: CarsItemComponent},
   {path: 'userdata', component: UserdataComponent},
   {path: 'orders', component: OrderListComponent},
   {path: 'tires', component: TiresGridComponent},
   {path: 'car-services', component: CarServicesComponent},
+  {path: 'shoppingcart', component: ShoppingcartComponent},
   {path: 'not-found', component: PageNotFoundComponent},
   {path: '**', redirectTo: '/not-found'}
 ];
@@ -45,7 +51,10 @@ const appRoutes: Routes = [
     UserdataComponent,
     OrderListComponent,
     TiresGridComponent,
-    CarServicesComponent
+    CarServicesComponent,
+    CarsItemComponent,
+    ShoppingcartComponent,
+    ErrorAlertComponent
   ],
   imports: [
     BrowserModule,

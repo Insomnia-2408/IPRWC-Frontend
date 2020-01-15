@@ -1,3 +1,23 @@
 <div class="container">
-  <h1>Cars</h1>
+  <ul class="car-ul">
+    <li *ngFor="let car of cars">
+      <table class="table-responsive" (click)="toSinglePage(car)">
+        <tr>
+          <td>
+            <h1>{{ car.model }}</h1>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <img class="car-img" src="https://www.bmw.nl/content/dam/bmw/common/all-models/m-series/m2-coupe/2018/navigation/bmw-m-series-m2-modelcard.png">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p>{{ car.bodyType.toLowerCase() }}</p>
+          </td>
+        </tr>
+      </table>
+    </li>
+  </ul>
 </div>

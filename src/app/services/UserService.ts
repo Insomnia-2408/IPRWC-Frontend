@@ -8,6 +8,7 @@ export class UserService {
 
   host = ServerModel.host;
   port = ServerModel.port;
+  error = null;
 
   constructor(private http: HttpClient, private cookies: CookieService) {}
 
@@ -19,9 +20,7 @@ export class UserService {
       this.cookies.set('token', res);
       },
         error => {
-          if(error.message.toString().includes("404")) {
-            alert("Email and password combination invalid.");
-          }
+          this.error = error.message;
         }
       );
 
@@ -31,7 +30,11 @@ export class UserService {
 
     var url = "http://" + this.host + ":" + this.port + "/users/register";
 
-    this.http.post(url, formData).subscribe();
+    this.http.post(url, formData).subscribe( r=> {
+
+    }, error => {
+      this.error = error.message;
+    });
 
   }
 

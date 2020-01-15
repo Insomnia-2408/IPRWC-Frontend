@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {CarService} from '../services/CarService';
+import {CarModel} from '../models/CarModel';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-cars',
@@ -7,9 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CarsGridComponent implements OnInit {
 
-  constructor() { }
+  cars = [];
+
+  constructor(private router: Router, private service: CarService) { }
+
+  toSinglePage(car: CarModel) {
+    this.service.selectedCar = car;
+    this.router.navigate(['/cars-item']);
+  }
 
   ngOnInit() {
+    this.service.getCars().then( r => {
+      this.cars = r;
+    });
   }
 
 }

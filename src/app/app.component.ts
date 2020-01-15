@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {UserService} from './services/UserService';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'iprwc';
+
+  constructor(private userService: UserService) {
+  }
+
+  destroySession() {
+    this.userService.destroySession();
+  }
 }

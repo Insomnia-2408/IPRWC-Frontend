@@ -1,0 +1,29 @@
+.car-ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 5px;
+  grid-row-gap: 5px;
+  list-style: none;
+  width: 80vw;
+  padding: 0;
+  margin: auto;
+}
+
+.car-ul li:hover {
+  transform: scale(1.25);
+  transition: all 0.5s;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.car-img {
+  max-width: 100%;
+}
+
+/*table {*/
+/*  backdrop-filter: grayscale(0.2) opacity(0.8);*/
+/*}*/
+
+h1, p {
+  text-align: center;
+}
