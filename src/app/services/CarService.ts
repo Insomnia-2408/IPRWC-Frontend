@@ -13,12 +13,9 @@ export class CarService {
   constructor(private http: HttpClient, private userService: UserService) {
   }
 
-  async getCars() {
-    var url = "http://" + ServerModel.host + ":" + ServerModel.port + "/cars/" + this.userService.isLoggedIn();
-    this.http.get<CarModel[]>(url).subscribe(r => {
-      this.cars = r;
-    });
-    return this.cars.slice();
+  getCars() {
+    var url = "http://" + ServerModel.host + ":" + ServerModel.port + "/cars";
+    return this.http.get<CarModel[]>(url);
   }
 
   getCarById(id: number) {

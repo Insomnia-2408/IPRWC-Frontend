@@ -8,7 +8,6 @@ import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {CookieService} from 'ngx-cookie-service';
 import { HeaderComponent } from './header/header.component';
-import { DropdownDirective } from './dropdown.directive';
 import { CarsGridComponent } from './cars-grid/cars-grid.component';
 import { HomeComponent } from './home/home.component';
 import {RouterModule, Routes} from '@angular/router';
@@ -21,6 +20,7 @@ import { CarsItemComponent } from './cars-item/cars-item.component';
 import {CarModel} from './models/CarModel';
 import { ShoppingcartComponent } from './shoppingcart/shoppingcart.component';
 import { ErrorAlertComponent } from './error-alert/error-alert.component';
+import {NgbModal, NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -44,7 +44,6 @@ const appRoutes: Routes = [
     LoginComponent,
     RegisterComponent,
     HeaderComponent,
-    DropdownDirective,
     CarsGridComponent,
     HomeComponent,
     PageNotFoundComponent,
@@ -60,10 +59,12 @@ const appRoutes: Routes = [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    NgbModule
   ],
   providers: [CookieService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ErrorAlertComponent]
 })
 
 export class AppModule { }

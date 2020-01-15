@@ -18,7 +18,7 @@ export class CarModel {
   gears: number;
   energyLabel: EnergyLabel;
   APK: Date;
-  imagepath: string;
+  imagePath: string;
 
 }
 

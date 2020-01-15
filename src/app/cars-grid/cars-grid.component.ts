@@ -19,9 +19,9 @@ export class CarsGridComponent implements OnInit {
     this.router.navigate(['/cars-item']);
   }
 
-  ngOnInit() {
-    this.service.getCars().then( r => {
-      this.cars = r;
+  async ngOnInit() {
+    await this.service.getCars().subscribe( r => {
+      this.cars = r.slice();
     });
   }
 

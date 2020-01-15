@@ -7,3 +7,7 @@ table {
   text-align: left;
   margin-left: 20%;
 }
+
+.car-item-img {
+  max-width: 80%;
+}

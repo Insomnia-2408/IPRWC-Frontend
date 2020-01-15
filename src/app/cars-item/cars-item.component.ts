@@ -16,7 +16,7 @@ export class CarsItemComponent implements OnInit {
 
   ngOnInit() {
     this.car = this.service.selectedCar;
-    console.log(this.car.imagepath);
+    console.log(this.car);
     this.checkNotNull();
   }
 
