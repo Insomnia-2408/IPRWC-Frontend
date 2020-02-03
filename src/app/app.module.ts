@@ -64,7 +64,7 @@ const appRoutes: Routes = [
   ],
   providers: [CookieService],
   bootstrap: [AppComponent],
-  entryComponents: [ErrorAlertComponent]
+  entryComponents: [ErrorAlertComponent, CarsItemComponent]
 })
 
 export class AppModule { }

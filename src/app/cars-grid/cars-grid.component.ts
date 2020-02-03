@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {CarService} from '../services/CarService';
 import {CarModel} from '../models/CarModel';
 import {Router} from '@angular/router';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {CarsItemComponent} from '../cars-item/cars-item.component';
 
 @Component({
   selector: 'app-cars',
@@ -12,7 +14,10 @@ export class CarsGridComponent implements OnInit {
 
   cars = [];
 
-  constructor(private router: Router, private service: CarService) { }
+  constructor(private router: Router,
+              private service: CarService,
+              private modalService: NgbModal
+  ) { }
 
   toSinglePage(car: CarModel) {
     this.service.selectedCar = car;
@@ -25,4 +30,8 @@ export class CarsGridComponent implements OnInit {
     });
   }
 
+  openInfo(car: CarModel) {
+    const modalRef = this.modalService.open(CarsItemComponent);
+    modalRef.componentInstance.car = car;
+  }
 }

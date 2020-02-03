@@ -1,13 +1,15 @@
-div {
+.car-item-img {
+  max-width: 60%;
+}
+
+.close:hover {
+  cursor: pointer;
+}
+
+.modal-body {
   text-align: center;
 }
 
-table {
-  width: 60%;
+.table {
   text-align: left;
-  margin-left: 20%;
-}
-
-.car-item-img {
-  max-width: 80%;
 }

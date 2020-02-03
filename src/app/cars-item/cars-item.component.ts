@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {CarModel} from '../models/CarModel';
 import {CarService} from '../services/CarService';
+import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-cars-item',
@@ -10,13 +11,14 @@ import {CarService} from '../services/CarService';
 })
 export class CarsItemComponent implements OnInit {
 
-  car: CarModel;
+  @Input() car: CarModel;
 
-  constructor(private router: Router, private service: CarService) { }
+  constructor(private router: Router,
+              private service: CarService,
+              private activeModal: NgbActiveModal
+  ) { }
 
   ngOnInit() {
-    this.car = this.service.selectedCar;
-    console.log(this.car);
     this.checkNotNull();
   }
 
@@ -26,4 +28,7 @@ export class CarsItemComponent implements OnInit {
     }
   }
 
+  close() {
+    this.activeModal.close();
+  }
 }
