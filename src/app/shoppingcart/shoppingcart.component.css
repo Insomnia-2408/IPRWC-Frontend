@@ -1,0 +1,12 @@
+.img-thumbnail {
+  max-width: 20vw;
+}
+
+.badge {
+font-size: 1em;
+}
+
+ul {
+  max-height: 72vh;
+  overflow-y: auto;
+}

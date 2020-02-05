@@ -2,8 +2,8 @@
   <ul class="car-ul">
     <li *ngFor="let car of cars">
       <div class="card" (click)="openInfo(car)">
-        <img class="card-img-top car-img" src="https://www.bmw.nl/content/dam/bmw/common/all-models/m-series/m2-coupe/2018/navigation/bmw-m-series-m2-modelcard.png">
-        <p class="card-text">{{ car.bodyType.toLowerCase() }}</p>
+        <img class="card-img-top car-img" [src]="car.imagePath">
+        <p class="card-text">{{car.brand}}&nbsp;{{ car.model }}&nbsp;&nbsp;&nbsp;&nbsp;{{car.price | currency:'EUR'}}</p>
       </div>
     </li>
   </ul>

@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {NgForm} from '@angular/forms';
 import {UserService} from '../services/UserService';
 import {Router} from '@angular/router';
+import {PopupService} from '../services/PopupService';
 
 @Component({
   selector: 'app-register',
@@ -10,9 +11,21 @@ import {Router} from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(private service: UserService, private router: Router) { }
+  constructor(
+    private service: UserService,
+    private router: Router,
+    private popupService: PopupService
+  ) { }
 
   onSubmit(form: NgForm) {
+
+    var elements = form.control.controls;
+
+    if(elements.email.invalid) {
+      this.popupService.dangerPopup("Please enter a valid email.");
+      return;
+    }
+
     this.service.register({
       "email": form.value.email,
       "password": form.value.password,

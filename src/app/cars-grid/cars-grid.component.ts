@@ -31,7 +31,7 @@ export class CarsGridComponent implements OnInit {
   }
 
   openInfo(car: CarModel) {
-    const modalRef = this.modalService.open(CarsItemComponent);
+    const modalRef = this.modalService.open(CarsItemComponent,  {size: 'lg'});
     modalRef.componentInstance.car = car;
   }
 }

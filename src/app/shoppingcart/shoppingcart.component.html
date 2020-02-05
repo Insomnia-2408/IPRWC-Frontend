@@ -1,0 +1,20 @@
+<div *ngIf="shoppingList != undefined" class="container">
+  <ul class="list-group">
+    <li *ngFor="let item of shoppingList" class="list-group-item d-flex justify-content-between align-items-center">
+      <img class="img-thumbnail" [src]="item.imagePath">
+      <h3>{{item.name}}</h3>
+      <label for="amount">Amount: </label>
+      <input type="number" id="amount" min="1" [value]="item.amount" onkeydown="return false" (change)="setAmount(item, $event)" />
+      <span class="badge badge-primary badge-pill"> {{item.price | currency:'EUR'}}</span>
+    </li>
+  </ul>
+  <p class="text-center">Total price: {{total | currency:'EUR'}}</p>
+  <div class="btn-toolbar">
+    <button class="btn btn-block btn-primary">Place order</button>
+  </div>
+</div>
+<div *ngIf="shoppingList == undefined" class="container">
+  <p>
+    There is nothing in your cart.
+  </p>
+</div>

@@ -1,0 +1,16 @@
+.main {
+  padding: 1% 5%;
+  overflow-y: auto;
+  height: 92vh;
+}
+
+html {
+  height: 100vh;
+  overflow: hidden;
+}
+
+app-header {
+  position: sticky;
+  height: 8vh;
+  width: 100vw;
+}

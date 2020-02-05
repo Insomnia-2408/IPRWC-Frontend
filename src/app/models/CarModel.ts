@@ -7,7 +7,7 @@ export class CarModel {
   options: string;
   transmission: Transmission;
   fuelType: FuelType;
-  buildyear: number;
+  buildYear: number;
   doors: number;
   model: string;
   numberplate: string;
@@ -17,8 +17,9 @@ export class CarModel {
   seats: number;
   gears: number;
   energyLabel: EnergyLabel;
-  APK: Date;
+  apk: Date;
   imagePath: string;
+  price: number;
 
 }
 

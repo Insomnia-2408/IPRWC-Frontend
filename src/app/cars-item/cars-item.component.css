@@ -1,5 +1,8 @@
 .car-item-img {
-  max-width: 60%;
+  width: 100%;
+  height: 30vh;
+  padding-bottom: 8px;
+  object-fit: cover;
 }
 
 .close:hover {
@@ -12,4 +15,5 @@
 
 .table {
   text-align: left;
+  font-size: 1em;
 }

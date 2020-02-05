@@ -17,10 +17,10 @@ import { OrderListComponent } from './order-list/order-list.component';
 import { TiresGridComponent } from './tires-grid/tires-grid.component';
 import { CarServicesComponent } from './car-services/car-services.component';
 import { CarsItemComponent } from './cars-item/cars-item.component';
-import {CarModel} from './models/CarModel';
 import { ShoppingcartComponent } from './shoppingcart/shoppingcart.component';
-import { ErrorAlertComponent } from './error-alert/error-alert.component';
-import {NgbModal, NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {AlertPopupComponent} from './popup/alert-popup/alert-popup.component';
+import {ConfirmPopupComponent} from './popup/confirm-popup/confirm-popup.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -53,7 +53,8 @@ const appRoutes: Routes = [
     CarServicesComponent,
     CarsItemComponent,
     ShoppingcartComponent,
-    ErrorAlertComponent
+    AlertPopupComponent,
+    ConfirmPopupComponent
   ],
   imports: [
     BrowserModule,
@@ -64,7 +65,7 @@ const appRoutes: Routes = [
   ],
   providers: [CookieService],
   bootstrap: [AppComponent],
-  entryComponents: [ErrorAlertComponent, CarsItemComponent]
+  entryComponents: [CarsItemComponent, ConfirmPopupComponent, AlertPopupComponent]
 })
 
 export class AppModule { }

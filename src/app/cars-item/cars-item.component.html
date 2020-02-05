@@ -1,51 +1,41 @@
-<div class="modal-content">
-      <div class="modal-header">
-        <h4>{{car.model}}</h4><a class="close" (click)="close()">×</a>
+ <div class="modal-header">
+    <h4 class="modal-title">{{car.model}}</h4><a class="close" role="button" (click)="close()">×</a>
+  </div>
+  <div class="modal-body">
+    <img class="car-item-img" [src]="car.imagePath">
+    <div class="table">
+      <div class="row">
+        <div class="col">Model: </div><div class="col">{{car.model}}</div>
+        <div class="col">Doors: </div><div class="col">{{car.doors}}</div>
+        <div class="col">State: </div><div class="col">{{car.carType | lowercase}}</div>
       </div>
-      <div class="modal-body">
-        <img class="car-item-img" [src]="car.imagePath">
-        <hr>
-        <div class="table table-borderless">
-          <div class="row">
-            <div class="col">Model: </div><div class="col">{{car.model}}</div>
-            <div class="col">Doors: </div><div class="col">{{car.doors}}</div>
-          </div>
-          <div class="row">
-            <div class="col">State: </div><div class="col">{{car.carType}}</div>
-            <div class="col">Numberplate: </div><div class="col">{{car.numberplate}}</div>
-          </div>
-          <div class="row">
-            <div class="col">Brand: </div><div class="col">{{car.brand}}</div>
-            <div class="col">Body: </div><div class="col">{{car.bodyType}}</div>
-          </div>
-          <div class="row">
-            <div class="col">Mileage: </div><div class="col">{{car.mileage}}</div>
-            <div class="col">Motor: </div><div class="col">{{car.motorType}}</div>
-          </div>
-          <div class="row">
-            <div class="col">Options: </div><div class="col">{{car.options}}</div>
-            <div class="col">Horsepower: </div><div class="col">{{car.horsepower}}</div>
-          </div>
-          <div class="row">
-            <div class="col">Transmission: </div><div class="col">{{car.transmission}}</div>
-            <div class="col">Seats: </div><div class="col">{{car.seats}}</div>
-          </div>
-          <div class="row">
-            <div class="col">Fuel: </div><div class="col">{{car.fuelType}}</div>
-            <div class="col">Gears: </div><div class="col">{{car.gears}}</div>
-          </div>
-          <div class="row">
-            <div class="col">Build year: </div><div class="col">{{car.buildyear}}</div>
-            <div class="col">Energy label: </div><div class="col">{{car.energyLabel}}</div>
-          </div>
-          <div class="row">
-            <div class="col">Options: </div><div class="col">{{car.options}}</div>
-            <div class="col">APK: </div><div class="col">{{car.APK}}</div>
-          </div>
-        </div>
+      <div class="row">
+        <div class="col">Numberplate: </div><div class="col">{{car.numberplate}}</div>
+        <div class="col">Brand: </div><div class="col">{{car.brand}}</div>
+        <div class="col">Body: </div><div class="col">{{car.bodyType | lowercase}}</div>
       </div>
-      <div class="modal-footer">
-        <a class="btn btn-success">Call to action</a>
-        <a class="btn" (click)="close()">Close</a>
+      <div class="row">
+        <div class="col">Mileage: </div><div class="col">{{car.mileage}}</div>
+        <div class="col">Motor: </div><div class="col">{{car.motorType}}</div>
+        <div class="col">Options: </div><div class="col">{{car.options | lowercase}}</div>
       </div>
-</div>
+      <div class="row">
+        <div class="col">Horsepower: </div><div class="col">{{car.horsepower}}</div>
+        <div class="col">Transmission: </div><div class="col">{{car.transmission | lowercase}}</div>
+        <div class="col">Seats: </div><div class="col">{{car.seats}}</div>
+      </div>
+      <div class="row">
+        <div class="col">Fuel: </div><div class="col">{{car.fuelType | lowercase}}</div>
+        <div class="col">Gears: </div><div class="col">{{car.gears}}</div>
+        <div class="col">Build year: </div><div class="col">{{car.buildYear}}</div>
+      </div>
+      <div class="row">
+        <div class="col">Energy label: </div><div class="col">{{car.energyLabel}}</div>
+        <div class="col">Options: </div><div class="col">{{car.options | lowercase}}</div>
+        <div class="col">APK: </div><div class="col">{{car.apk | date}}</div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="addToCart()">Add to cart</button>
+  </div>
