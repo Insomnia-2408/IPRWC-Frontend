@@ -3,14 +3,18 @@ import {ServerModel} from '../models/ServerModel';
 import {Injectable} from '@angular/core';
 import {CookieService} from 'ngx-cookie-service';
 import {PopupService} from './PopupService';
+import {UserModel} from '../models/UserModel';
 
 @Injectable({providedIn: 'root'})
 export class UserService {
 
   host = ServerModel.host;
   port = ServerModel.port;
+  user: UserModel;
 
-  constructor(private http: HttpClient, private cookies: CookieService, private popup: PopupService) {}
+  constructor(private http: HttpClient, private cookies: CookieService, private popup: PopupService) {
+    this.checkIsLoggedIn();
+  }
 
   async login(loginData: {email: string, password: string}) {
 
@@ -24,13 +28,15 @@ export class UserService {
         }
       );
 
+    this.setUserInfo();
+
   }
 
   async register(formData: {email: string, password: string, name: string, address: string}) {
 
     var url = "http://" + this.host + ":" + this.port + "/users/register";
 
-    this.http.post(url, formData).subscribe( r=> {
+    this.http.post(url, formData).subscribe( response => {
 
     }, error => {
       this.handleError(error);
@@ -61,4 +67,24 @@ export class UserService {
     }
   }
 
+  setUserInfo() {
+    var url = "http://" + this.host + ":" + this.port + "/auth/getThisUser";
+    let headers = new HttpHeaders();
+    headers.set('token', this.cookies.get('token'));
+
+    this.http.get<UserModel>(url, {headers: headers}).subscribe(response => {
+      this.user = response;
+      console.log(response);
+    }, error => {
+      this.handleError(error);
+    });
+  }
+
+  private checkIsLoggedIn() {
+    if(this.isLoggedIn() && this.user == null) {
+      this.setUserInfo();
+    } else {
+      return;
+    }
+  }
 }
