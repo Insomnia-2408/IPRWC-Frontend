@@ -23,8 +23,12 @@ export class ShoppingcartComponent implements OnInit {
 
   getShoppingList() {
     this.shoppingList = this.shoppingcartService.shoppinglist.slice();
-    this.total = 0;
-    this.makeTotal();
+    if(this.shoppingList.length == 0) {
+      this.shoppingList = undefined;
+    } else {
+      this.total = 0;
+      this.makeTotal();
+    }
   }
 
   makeTotal() {
@@ -35,6 +39,11 @@ export class ShoppingcartComponent implements OnInit {
 
   setAmount(item: Product, event: any) {
     this.shoppingcartService.setAmount(item, event.target.value);
+    this.getShoppingList();
+  }
+
+  remove(item: Product) {
+    this.shoppingcartService.removeItem(item);
     this.getShoppingList();
   }
 }

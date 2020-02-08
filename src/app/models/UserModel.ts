@@ -5,11 +5,12 @@ enum UserRole {
 }
 
 export class UserModel {
+  clientID: number;
   name: string;
   email: string;
   address: string;
-  orders: [];
-  carServices: [];
-  bills: [];
-  userRole: UserRole;
+  // orders: [];
+  // carServices: [];
+  // bills: [];
+  user_role: UserRole;
 }

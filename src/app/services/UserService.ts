@@ -22,13 +22,12 @@ export class UserService {
 
     this.http.post(url, loginData, {responseType: 'text'}).subscribe(res => {
       this.cookies.set('token', res);
+      this.setUserInfo();
       },
         error => {
           this.handleError(error);
         }
       );
-
-    this.setUserInfo();
 
   }
 
@@ -61,20 +60,25 @@ export class UserService {
 
   handleError(error: any) {
     if(error.status == 404 || error.status == 400) {
-      this.popup.dangerPopup("Your credentials do not match our records.")
+      this.popup.dangerPopup("Your userdata does not match our records.")
     } else {
       this.popup.dangerPopup("Something went wrong, try again later.");
     }
   }
 
-  setUserInfo() {
+  setUserInfo(callback?: Function) {
     var url = "http://" + this.host + ":" + this.port + "/auth/getThisUser";
-    let headers = new HttpHeaders();
-    headers.set('token', this.cookies.get('token'));
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'token': this.cookies.get('token')
+      })
+    };
 
-    this.http.get<UserModel>(url, {headers: headers}).subscribe(response => {
+    this.http.get<UserModel>(url, httpOptions).subscribe(response => {
       this.user = response;
-      console.log(response);
+      if(callback) {
+        callback();
+      }
     }, error => {
       this.handleError(error);
     });
@@ -86,5 +90,22 @@ export class UserService {
     } else {
       return;
     }
+  }
+
+  updateUser(newUser: UserModel) {
+    var url = "http://" + this.host + ":" + this.port + "/users/editUserData";
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'token': this.cookies.get('token')
+      })
+    };
+
+    this.http.put<UserModel>(url, newUser, httpOptions).subscribe( response => {
+      this.popup.succesPopup('The changes were succesfully executed.');
+    }, error => {
+      this.handleError(error);
+    });
   }
 }

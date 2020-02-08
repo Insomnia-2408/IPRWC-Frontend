@@ -14,23 +14,22 @@ import {RouterModule, Routes} from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { UserdataComponent } from './userdata/userdata.component';
 import { OrderListComponent } from './order-list/order-list.component';
-import { TiresGridComponent } from './tires-grid/tires-grid.component';
 import { CarServicesComponent } from './car-services/car-services.component';
 import { CarsItemComponent } from './cars-item/cars-item.component';
 import { ShoppingcartComponent } from './shoppingcart/shoppingcart.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {AlertPopupComponent} from './popup/alert-popup/alert-popup.component';
 import {ConfirmPopupComponent} from './popup/confirm-popup/confirm-popup.component';
+import { NamePipe } from './name.pipe';
+import { AddressPipe } from './address.pipe';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'cars', component: CarsGridComponent},
-  {path: 'cars-item', component: CarsItemComponent},
   {path: 'userdata', component: UserdataComponent},
   {path: 'orders', component: OrderListComponent},
-  {path: 'tires', component: TiresGridComponent},
   {path: 'car-services', component: CarServicesComponent},
   {path: 'shoppingcart', component: ShoppingcartComponent},
   {path: 'not-found', component: PageNotFoundComponent},
@@ -49,12 +48,13 @@ const appRoutes: Routes = [
     PageNotFoundComponent,
     UserdataComponent,
     OrderListComponent,
-    TiresGridComponent,
     CarServicesComponent,
     CarsItemComponent,
     ShoppingcartComponent,
     AlertPopupComponent,
-    ConfirmPopupComponent
+    ConfirmPopupComponent,
+    NamePipe,
+    AddressPipe
   ],
   imports: [
     BrowserModule,

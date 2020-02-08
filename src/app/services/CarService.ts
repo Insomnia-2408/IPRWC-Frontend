@@ -7,15 +7,20 @@ import {UserService} from './UserService';
 @Injectable({providedIn: 'root'})
 export class CarService {
 
-  cars: CarModel[] = [];
+  cars: CarModel[];
   selectedCar;
 
   constructor(private http: HttpClient, private userService: UserService) {
   }
 
-  getCars() {
+  getCars(callback?: Function) {
     var url = "http://" + ServerModel.host + ":" + ServerModel.port + "/cars";
-    return this.http.get<CarModel[]>(url);
+    this.http.get<CarModel[]>(url).subscribe(response => {
+      this.cars = response;
+      if(callback) {
+        callback();
+      }
+    });
   }
 
   getCarById(id: number) {

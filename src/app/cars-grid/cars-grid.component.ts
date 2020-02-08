@@ -13,6 +13,7 @@ import {CarsItemComponent} from '../cars-item/cars-item.component';
 export class CarsGridComponent implements OnInit {
 
   cars = [];
+  carsLoaded = false;
 
   constructor(private router: Router,
               private service: CarService,
@@ -24,9 +25,11 @@ export class CarsGridComponent implements OnInit {
     this.router.navigate(['/cars-item']);
   }
 
-  async ngOnInit() {
-    await this.service.getCars().subscribe( r => {
-      this.cars = r.slice();
+  ngOnInit() {
+    let self = this;
+    this.service.getCars(function() {
+      self.cars = self.service.cars.slice();
+      self.carsLoaded = true;
     });
   }
 

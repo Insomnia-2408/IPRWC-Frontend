@@ -1,1 +1,35 @@
-<p>userdata works!</p>
+<h1>Userdata</h1>
+<hr>
+<p *ngIf="!userIsSet">Loading userdata...</p>
+<form *ngIf="userIsSet" (ngSubmit)="onSubmit(f)" #f="ngForm">
+  <div class="form-group">
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" class="form-control"
+           [disabled]="!editMode" required [(ngModel)]="email">
+  </div>
+  <div class="form-group">
+    <label>Name:</label>
+    <div class="input-group">
+      <input type="text" id="firstname" name="firstname" class="form-control"
+             [disabled]="!editMode" required [(ngModel)]="firstname">
+      <span class="input-group-text"> - </span>
+      <input type="text" id="lastname" name="lastname" class="form-control"
+             [disabled]="!editMode" required [(ngModel)]="lastname">
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Address:</label>
+    <div class="input-group">
+      <input type="zipcode" id="zipcode" name="zipcode" class="form-control"
+             [disabled]="!editMode" required [(ngModel)]="zipcode">
+      <span class="input-group-text"> - </span>
+      <input type="number" id="house_number" name="house_number" class="form-control"
+             [disabled]="!editMode" required [(ngModel)]="house_number">
+    </div>
+    <small type="form-text text-muted">Your address information will only be used to send your orders.</small>
+  </div>
+  <div class="form-group">
+    <button *ngIf="!editMode" type="submit" class=" btn btn-primary">Edit userdata</button>
+    <button *ngIf="editMode" type="submit" class="btn btn-primary">Save changes</button>
+  </div>
+</form>

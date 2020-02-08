@@ -26,4 +26,13 @@ export class ShoppingcartService {
     localStorage.setItem('shoppinglist', JSON.stringify(this.shoppinglist));
   }
 
+  removeItem(item: Product) {
+    for(let i=0; i<this.shoppinglist.length; i++ ) {
+      if(item.id == this.shoppinglist[i].id && item.productType == this.shoppinglist[i].productType) {
+        this.shoppinglist.splice(i, 1);
+      }
+    }
+    localStorage.setItem('shoppinglist', JSON.stringify(this.shoppinglist));
+  }
+
 }

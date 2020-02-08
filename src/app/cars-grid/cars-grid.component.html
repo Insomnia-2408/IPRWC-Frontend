@@ -1,5 +1,5 @@
 <div class="container">
-  <ul class="car-ul">
+  <ul *ngIf="carsLoaded" class="car-ul">
     <li *ngFor="let car of cars">
       <div class="card" (click)="openInfo(car)">
         <img class="card-img-top car-img" [src]="car.imagePath">
@@ -7,4 +7,7 @@
       </div>
     </li>
   </ul>
+  <p *ngIf="!carsLoaded">
+    Loading cars...
+  </p>
 </div>
