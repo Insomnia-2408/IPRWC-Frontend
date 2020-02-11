@@ -39,16 +39,24 @@ export class CarService {
 
   remove(car: CarModel) {
     var url = "http://" + ServerModel.host + ":" + ServerModel.port + "/cars/" + car.id;
-    this.http.delete(url).subscribe(response => {
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'token': this.userService.isLoggedIn()
+      })
+    };
+
+    this.http.delete(url, httpOptions).subscribe(response => {
       this.popupService.infoPopup(car.model + " has been deleted.");
       this.carsChanged.emit();
     }, error => {
-      console.log(error);
+      this.popupService.dangerPopup("An unexpected error occurred, please try again later.");
     });
   }
 
   add(car: CarModel) {
     var url = "http://" + ServerModel.host + ":" + ServerModel.port + "/cars";
+
     const httpOptions = {
       headers: new HttpHeaders({
         'token': this.userService.isLoggedIn()
@@ -56,6 +64,7 @@ export class CarService {
     };
 
     this.http.post(url, car, httpOptions).subscribe( response => {
+      this.carsChanged.emit();
       this.popupService.infoPopup("Successfully added the new car.")
     }, error => {
       console.log(error);

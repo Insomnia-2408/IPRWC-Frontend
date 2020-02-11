@@ -22,6 +22,7 @@ export class CarModel {
     this.gears = gears;
     this.energyLabel = energyLabel;
     this.apk = apk;
+    this.imagePath = imagePath;
     this.price = price;
   }
 

@@ -1,6 +1,6 @@
 <ul *ngIf="carsLoaded" class="car-ul">
   <li *ngFor="let car of cars">
-    <div class="card" (click)="openInfo(car)">
+    <div class="card h-100" (click)="openInfo(car)">
       <img class="card-img-top car-img" [src]="car.imagePath">
       <p class="card-text">{{car.brand}}&nbsp;{{ car.model }}&nbsp;&nbsp;&nbsp;&nbsp;{{car.price | currency:'EUR'}}</p>
     </div>
