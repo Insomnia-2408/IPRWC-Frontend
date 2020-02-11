@@ -31,11 +31,13 @@
       </div>
       <div class="row">
         <div class="col">Energy label: </div><div class="col">{{car.energyLabel}}</div>
-        <div class="col">Options: </div><div class="col">{{car.options | lowercase}}</div>
         <div class="col">APK: </div><div class="col">{{car.apk | date}}</div>
+        <div class="col">Price: </div><div class="col">{{car.price | currency:'EUR'}}</div>
       </div>
     </div>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-secondary" (click)="addToCart()">Add to cart</button>
+    <button *ngIf="!isAdmin" class="btn btn-primary" (click)="addToCart()">Add to cart</button>
+    <button *ngIf="isAdmin" class="btn btn-primary" (click)="toggleEdit()">Edit</button>
+    <button *ngIf="isAdmin" class="btn btn-danger" (click)="removeCar()">Remove</button>
   </div>

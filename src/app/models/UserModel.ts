@@ -1,8 +1,4 @@
-enum UserRole {
-  UNVERIFIED = 'UNVERIFIED',
-  USER = 'USER',
-  ADMIN = 'ADMIN'
-}
+import {UserRole} from './UserRole';
 
 export class UserModel {
   clientID: number;
@@ -12,5 +8,5 @@ export class UserModel {
   // orders: [];
   // carServices: [];
   // bills: [];
-  user_role: UserRole;
+  userRole: UserRole;
 }

@@ -1,13 +1,12 @@
-<div class="container">
-  <ul *ngIf="carsLoaded" class="car-ul">
-    <li *ngFor="let car of cars">
-      <div class="card" (click)="openInfo(car)">
-        <img class="card-img-top car-img" [src]="car.imagePath">
-        <p class="card-text">{{car.brand}}&nbsp;{{ car.model }}&nbsp;&nbsp;&nbsp;&nbsp;{{car.price | currency:'EUR'}}</p>
-      </div>
-    </li>
-  </ul>
-  <p *ngIf="!carsLoaded">
-    Loading cars...
-  </p>
-</div>
+<ul *ngIf="carsLoaded" class="car-ul">
+  <li *ngFor="let car of cars">
+    <div class="card" (click)="openInfo(car)">
+      <img class="card-img-top car-img" [src]="car.imagePath">
+      <p class="card-text">{{car.brand}}&nbsp;{{ car.model }}&nbsp;&nbsp;&nbsp;&nbsp;{{car.price | currency:'EUR'}}</p>
+    </div>
+  </li>
+</ul>
+<p *ngIf="!carsLoaded">
+  Loading cars...
+</p>
+<button *ngIf="isAdmin" class="btn btn-primary btn-circle" (click)="openAddCar()">+</button>

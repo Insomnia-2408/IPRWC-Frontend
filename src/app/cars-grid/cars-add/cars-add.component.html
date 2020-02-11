@@ -1,0 +1,127 @@
+<div class="modal-header">
+  <h4 class="modal-title">Add a new car</h4><a class="close" role="button" (click)="close()">×</a>
+</div>
+<form (ngSubmit)="onSubmit(f)" #f="ngForm">
+<div class="modal-body">
+  <label for="image">Image:</label>
+  <input type="text" name="imagePath" id="image" class="form-control" placeholder="Enter the address of the image" ngModel>
+  <br>
+  <div class="table">
+    <div class="row">
+      <div class="col">Model: </div>
+      <div class="col">
+        <input type="text" name="model" class="form-control" placeholder="Enter car model" required ngModel>
+      </div>
+      <div class="col">Doors: </div>
+      <div class="col">
+        <input type="number" min="1" name="doors" class="form-control" placeholder="Enter amount of doors" required ngModel>
+      </div>
+      <div class="col">State: </div>
+      <div class="col">
+        <select name="carType" class="form-control" required ngModel>
+          <option value="NEW">New</option>
+          <option value="OCCASION">Occasion</option>
+          <option value="SHOWMODEL">Showmodel</option>
+          <option value="OLDTIMER">Oldtimer</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">Numberplate: </div>
+      <div class="col">
+        <input type="text" name="numberplate" class="form-control" placeholder="Enter numberplate" required ngModel>
+      </div>
+      <div class="col">Brand: </div>
+      <div class="col">
+        <input type="text" name="brand" class="form-control" placeholder="Enter car brand" required ngModel>
+      </div>
+      <div class="col">Body: </div>
+      <div class="col">
+        <select name="bodyType" class="form-control" required ngModel>
+          <option value="SEDAN">Sedan</option>
+          <option value="COUPE">Coupe</option>
+          <option value="SUV">SUV</option>
+          <option value="CABRIOLET">Cabriolet</option>
+          <option value="HATCHBACK">Hatchback</option>
+          <option value="STATIONWAGON">Stationwagon</option>
+          <option value="MPV">MPV</option>
+          <option value="REMAINING">Remaining</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">Mileage: </div>
+      <div class="col">
+        <input type="number" min="1" name="mileage" class="form-control" placeholder="Enter mileage" required ngModel>
+      </div>
+      <div class="col">Motor: </div>
+      <div class="col">
+        <input type="text" name="motorType" class="form-control" placeholder="Enter motor type" ngModel>
+      </div>
+      <div class="col">Options: </div><div class="col">
+      <input type="text" name="options" class="form-control" placeholder="Enter options" ngModel>
+    </div>
+    </div>
+    <div class="row">
+      <div class="col">Horsepower: </div>
+      <div class="col">
+        <input type="number" min="1" name="horsepower" class="form-control" placeholder="Enter horsepower" ngModel>
+      </div>
+      <div class="col">Transmission: </div>
+      <div class="col">
+        <select name="transmission" class="form-control" required ngModel>
+          <option value="MANUAL">Manual</option>
+          <option value="AUTOMATIC">Automatic</option>
+          <option value="SEMI-AUTOMATIC">Semi-automatic</option>
+        </select>
+      </div>
+      <div class="col">Seats: </div><div class="col">
+      <input type="number" min="1" name="seats" class="form-control" placeholder="Enter amount seats" required ngModel>
+    </div>
+    </div>
+    <div class="row">
+      <div class="col">Fuel: </div>
+      <div class="col">
+        <select name="fuelType" class="form-control" required ngModel>
+          <option value="GASOLINE">Gasoline</option>
+          <option value="DIESEL">Diesel</option>
+          <option value="ELECTRIC">Electric</option>
+          <option value="HYDROGEN">Hydrogen</option>
+        </select>
+      </div>
+      <div class="col">Gears: </div>
+      <div class="col">
+      <input type="number" min="1" name="gears" class="form-control" placeholder="Enter amount gears" required ngModel>
+    </div>
+      <div class="col">Build year: </div>
+      <div class="col">
+        <input type="number" min="1950" name="buildYear" class="form-control" placeholder="Enter build year" required ngModel>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">Energy label: </div>
+      <div class="col">
+        <select name="energyLabel" class="form-control" ngModel>
+          <option value="A">A</option>
+          <option value="B">B</option>
+          <option value="C">C</option>
+          <option value="D">D</option>
+          <option value="E">E</option>
+          <option value="F">F</option>
+          <option value="G">G</option>
+        </select>
+      </div>
+      <div class="col">APK: </div><div class="col">
+      <input type="date" name="apk" class="form-control" placeholder="Enter APK" ngModel>
+    </div>
+      <div class="col">Price: </div>
+      <div class="col">
+        <input type="number" min="1" name="price" class="form-control" step="any" placeholder="Enter price" required ngModel>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+  <button type="submit" class="btn btn-secondary">Add car</button>
+</div>
+</form>

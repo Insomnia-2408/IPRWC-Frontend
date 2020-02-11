@@ -1,12 +1,13 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {CarModel} from '../models/CarModel';
-import {CarService} from '../services/CarService';
+import {CarModel} from '../../models/CarModel';
+import {CarService} from '../../services/CarService';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
-import {ShoppingcartService} from '../services/ShoppingcartService';
-import {PopupService} from '../services/PopupService';
-import {Product} from '../models/Product';
-import {ProductType} from '../models/ProductType';
+import {ShoppingcartService} from '../../services/ShoppingcartService';
+import {PopupService} from '../../services/PopupService';
+import {Product} from '../../models/Product';
+import {ProductType} from '../../models/ProductType';
+import {error} from 'util';
 
 @Component({
   selector: 'app-cars-item',
@@ -16,6 +17,8 @@ import {ProductType} from '../models/ProductType';
 export class CarsItemComponent implements OnInit {
 
   @Input() car: CarModel;
+  @Input() isAdmin: boolean = false;
+  editMode = false;
 
   constructor(private router: Router,
               private service: CarService,
@@ -43,5 +46,21 @@ export class CarsItemComponent implements OnInit {
     let product = new Product(this.car.model, this.car.id, ProductType.CAR, 1, this.car.imagePath, this.car.price);
     this.shoppingcartService.addItem(product);
     this.popupService.infoPopup("The " + this.car.model + " was added to your cart");
+  }
+
+  toggleEdit() {
+    console.log("Edit toggled");
+    this.editMode = !this.editMode;
+  }
+
+  removeCar() {
+    this.popupService.showConfirmPopup("Are you sure you want to delete " + this.car.model + "?" + "\n" +
+    "This cannot be reversed.").then(promise => {
+      this.service.remove(this.car);
+      this.activeModal.close();
+    }, cancel => {
+      this.popupService.infoPopup(this.car.model + " was not deleted.");
+      this.activeModal.close();
+    })
   }
 }

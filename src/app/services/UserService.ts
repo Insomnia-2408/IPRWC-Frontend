@@ -54,6 +54,7 @@ export class UserService {
 
     this.http.delete(url, { headers: headers}).subscribe();
 
+    this.user = null;
     this.cookies.delete('token');
     location.reload();
   }

@@ -15,13 +15,14 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { UserdataComponent } from './userdata/userdata.component';
 import { OrderListComponent } from './order-list/order-list.component';
 import { CarServicesComponent } from './car-services/car-services.component';
-import { CarsItemComponent } from './cars-item/cars-item.component';
+import { CarsItemComponent } from './cars-grid/cars-item/cars-item.component';
 import { ShoppingcartComponent } from './shoppingcart/shoppingcart.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {AlertPopupComponent} from './popup/alert-popup/alert-popup.component';
 import {ConfirmPopupComponent} from './popup/confirm-popup/confirm-popup.component';
 import { NamePipe } from './name.pipe';
 import { AddressPipe } from './address.pipe';
+import { CarsAddComponent } from './cars-grid/cars-add/cars-add.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -54,7 +55,8 @@ const appRoutes: Routes = [
     AlertPopupComponent,
     ConfirmPopupComponent,
     NamePipe,
-    AddressPipe
+    AddressPipe,
+    CarsAddComponent
   ],
   imports: [
     BrowserModule,
@@ -65,7 +67,7 @@ const appRoutes: Routes = [
   ],
   providers: [CookieService],
   bootstrap: [AppComponent],
-  entryComponents: [CarsItemComponent, ConfirmPopupComponent, AlertPopupComponent]
+  entryComponents: [CarsItemComponent, ConfirmPopupComponent, AlertPopupComponent, CarsAddComponent]
 })
 
 export class AppModule { }

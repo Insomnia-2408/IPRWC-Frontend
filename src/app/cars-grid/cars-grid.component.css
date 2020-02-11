@@ -31,3 +31,10 @@
 h1, p {
   text-align: center;
 }
+
+.btn-circle {
+  border-radius: 20px;
+  float: right;
+  font-weight: bold;
+  font-size: 1.1em;
+}
