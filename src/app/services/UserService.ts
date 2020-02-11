@@ -85,7 +85,7 @@ export class UserService {
     });
   }
 
-  private checkIsLoggedIn() {
+  checkIsLoggedIn() {
     if(this.isLoggedIn() && this.user == null) {
       this.setUserInfo();
     } else {
