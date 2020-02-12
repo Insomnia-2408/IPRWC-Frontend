@@ -4,13 +4,15 @@ import {Product} from '../models/Product';
 
 @Injectable({providedIn: 'root'})
 export class ShoppingcartService {
-  shoppinglist = [];
+  shoppinglist: Array<Product> = new Array<Product>();
   listAltered = new EventEmitter();
 
   constructor(private cookieService: CookieService) { }
 
   init() {
-    this.shoppinglist = JSON.parse(localStorage.getItem('shoppinglist'));
+    if(localStorage.getItem('shoppinglist') != null) {
+      this.shoppinglist = JSON.parse(localStorage.getItem('shoppinglist'));
+    }
   }
 
   addItem(product: Product) {

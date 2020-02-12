@@ -22,12 +22,13 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {
+    let self = this;
     this.shoppingcartService.init();
     this.setAmountItems();
     this.shoppingcartService.listAltered.subscribe(result => {
       this.setAmountItems()
     });
-    let self = this;
+
     if(this.service.isLoggedIn()) {
       this.service.setUserInfo(function() {
         if(self.service.user.userRole == UserRole.ADMIN) {
@@ -38,7 +39,7 @@ export class HeaderComponent implements OnInit {
   }
 
   setAmountItems() {
-    this.amountItems = this.shoppingcartService.shoppinglist.length;;
+    this.amountItems = this.shoppingcartService.shoppinglist.length;
   }
 
   destroySession() {

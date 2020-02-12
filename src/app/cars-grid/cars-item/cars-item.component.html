@@ -44,9 +44,15 @@
 
  <form *ngIf="editMode" (ngSubmit)="onSubmit(f)" #f="ngForm">
    <div class="modal-body text-left">
-     <label for="image">Image:</label>
-     <input type="text" name="imagePath" id="image" class="form-control" placeholder="Enter the address of the image" ngModel="{{car.imagePath}}">
-     <br>
+     <div class="row">
+       <div class="form-group col-8">
+         <label for="image">Image:</label>
+         <input type="text" name="imagePath" id="image" class="form-control" placeholder="Enter the address of the image" ngModel="{{car.imagePath}}">
+       </div>
+       <div class="col-4">
+         <img class="preview float-right" [src]="f.value.imagePath">
+       </div>
+     </div>
      <div class="table">
        <div class="row">
          <div class="col">Model: </div>
@@ -60,10 +66,7 @@
          <div class="col">State: </div>
          <div class="col">
            <select name="carType" class="form-control" required ngModel="{{car.carType}}">
-             <option value="NEW">New</option>
-             <option value="OCCASION">Occasion</option>
-             <option value="SHOWMODEL">Showmodel</option>
-             <option value="OLDTIMER">Oldtimer</option>
+             <option *ngFor="let carType of carTypes" [value]="carType">{{carType | titlecase}}</option>
            </select>
          </div>
        </div>
@@ -79,14 +82,7 @@
          <div class="col">Body: </div>
          <div class="col">
            <select name="bodyType" class="form-control" required ngModel="{{car.bodyType}}">
-             <option value="SEDAN">Sedan</option>
-             <option value="COUPE">Coupe</option>
-             <option value="SUV">SUV</option>
-             <option value="CABRIOLET">Cabriolet</option>
-             <option value="HATCHBACK">Hatchback</option>
-             <option value="STATIONWAGON">Stationwagon</option>
-             <option value="MPV">MPV</option>
-             <option value="REMAINING">Remaining</option>
+             <option *ngFor="let bodyType of bodyTypes" [value]="bodyType">{{bodyType | titlecase}}</option>
            </select>
          </div>
        </div>
@@ -111,23 +107,18 @@
          <div class="col">Transmission: </div>
          <div class="col">
            <select name="transmission" class="form-control" required ngModel="{{car.transmission}}">
-             <option value="MANUAL">Manual</option>
-             <option value="AUTOMATIC">Automatic</option>
-             <option value="SEMI-AUTOMATIC">Semi-automatic</option>
+             <option *ngFor="let transmission of transmissions" [value]="transmission">{{transmission | titlecase}}</option>
            </select>
          </div>
          <div class="col">Seats: </div><div class="col">
-         <input type="number" min="1" name="seats" class="form-control" placeholder="Enter amount seats" required ngModel="{{car.seats}}">
+         <input type="number" min="2" name="seats" class="form-control" placeholder="Enter amount seats" required ngModel="{{car.seats}}">
        </div>
        </div>
        <div class="row">
          <div class="col">Fuel: </div>
          <div class="col">
            <select name="fuelType" class="form-control" required ngModel="{{car.fuelType}}">
-             <option value="GASOLINE">Gasoline</option>
-             <option value="DIESEL">Diesel</option>
-             <option value="ELECTRIC">Electric</option>
-             <option value="HYDROGEN">Hydrogen</option>
+             <option *ngFor="let fuelType of fuelTypes" [value]="fuelType">{{fuelType | titlecase}}</option>
            </select>
          </div>
          <div class="col">Gears: </div>
@@ -143,13 +134,7 @@
          <div class="col">Energy label: </div>
          <div class="col">
            <select name="energyLabel" class="form-control" ngModel="{{car.energyLabel}}">
-             <option value="A">A</option>
-             <option value="B">B</option>
-             <option value="C">C</option>
-             <option value="D">D</option>
-             <option value="E">E</option>
-             <option value="F">F</option>
-             <option value="G">G</option>
+             <option *ngFor="let energyLabel of energyLabels" [value]="energyLabel">{{energyLabel | titlecase}}</option>
            </select>
          </div>
          <div class="col">APK: </div><div class="col">
@@ -163,7 +148,7 @@
      </div>
    </div>
    <div class="modal-footer">
-     <button type="submit" class="btn btn-warning">Edit car</button>
      <button class="btn btn-dark" (click)="toggleEdit()">Cancel</button>
+     <button type="submit" class="btn btn-danger">Edit car</button>
    </div>
  </form>

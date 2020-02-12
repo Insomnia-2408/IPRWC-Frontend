@@ -49,14 +49,14 @@ export class CarModel {
 
 }
 
-export const enum CarType {
+export enum CarType {
   NEW=  "NEW",
   OCCASION = "OCCASSION",
   SHOWMODEL = "SHOWMODEL",
   OLDTIMER = "OLDTIMER"
 }
 
-export const enum Transmission {
+export enum Transmission {
 
   AUTOMATIC = "AUTOMATIC",
   SEMI_AUTOMATIC = "SEMI_AUTOMATIC",
@@ -64,7 +64,7 @@ export const enum Transmission {
 
 }
 
-export const enum FuelType {
+export enum FuelType {
 
 
   GASOLINE= "GASOLINE",
@@ -74,7 +74,7 @@ export const enum FuelType {
 
 }
 
-export const enum BodyType {
+export enum BodyType {
 
   HATCHBACK= "HATCHBACK",
   MPV = "MPV",
@@ -87,7 +87,7 @@ export const enum BodyType {
 
 }
 
-export const enum EnergyLabel {
+export enum EnergyLabel {
 
   A= "A",
   B = "B",

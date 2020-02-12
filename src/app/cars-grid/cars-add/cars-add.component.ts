@@ -33,6 +33,12 @@ export class CarsAddComponent implements OnInit {
   imagePath = null;
   price = null;
 
+  carTypes = Object.keys(CarType);
+  bodyTypes = Object.keys(BodyType);
+  transmissions = Object.keys(Transmission);
+  fuelTypes = Object.keys(FuelType);
+  energyLabels = Object.keys(EnergyLabel);
+
   constructor(
     private activeModal: NgbActiveModal,
     private service: CarService,

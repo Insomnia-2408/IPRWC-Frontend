@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {CarModel} from '../../models/CarModel';
+import {BodyType, CarModel, CarType, EnergyLabel, FuelType, Transmission} from '../../models/CarModel';
 import {CarService} from '../../services/CarService';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {ShoppingcartService} from '../../services/ShoppingcartService';
@@ -21,6 +21,12 @@ export class CarsItemComponent implements OnInit {
   @Input() isAdmin: boolean = false;
   editMode = false;
 
+  carTypes = Object.keys(CarType);
+  bodyTypes = Object.keys(BodyType);
+  transmissions = Object.keys(Transmission);
+  fuelTypes = Object.keys(FuelType);
+  energyLabels = Object.keys(EnergyLabel);
+
   constructor(private router: Router,
               private service: CarService,
               private shoppingcartService: ShoppingcartService,
@@ -30,6 +36,7 @@ export class CarsItemComponent implements OnInit {
 
   ngOnInit() {
     this.checkNotNull();
+    this.shoppingcartService.init();
   }
 
   checkNotNull() {

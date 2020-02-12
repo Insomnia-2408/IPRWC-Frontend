@@ -9,7 +9,7 @@ import {audit} from 'rxjs/operators';
   styleUrls: ['./shoppingcart.component.css']
 })
 export class ShoppingcartComponent implements OnInit {
-  shoppingList;
+  shoppingList = [];
   total = 0;
 
   constructor(private shoppingcartService: ShoppingcartService) { }

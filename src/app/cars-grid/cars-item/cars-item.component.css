@@ -27,3 +27,9 @@ input[type=date]::-webkit-inner-spin-button {
 input[type=date] {
   font-size: 0.9em;
 }
+
+.preview {
+  max-height: 13vh;
+  max-width: 13vw;
+  padding: 2% 2% 0;
+}

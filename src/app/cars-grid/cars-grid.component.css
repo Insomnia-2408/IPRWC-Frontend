@@ -11,8 +11,9 @@
 .car-ul li:hover {
   transform: scale(1.15);
   transition: all 0.5s;
-  z-index: 1 !important;
+  z-index: 3 !important;
   cursor: pointer;
+  position: relative;
 }
 
 .card {

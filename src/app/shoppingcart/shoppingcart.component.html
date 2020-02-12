@@ -1,4 +1,4 @@
-<div *ngIf="shoppingList != undefined" class="container">
+<div *ngIf="shoppingList != null" class="container">
   <ul class="list-group">
     <li *ngFor="let item of shoppingList" class="list-group-item d-flex justify-content-between align-items-center">
       <img class="img-thumbnail" [src]="item.imagePath">
