@@ -1,7 +1,7 @@
 .main {
-  padding: 1% 5%;
+  padding: 1% 5% 1%;
   overflow-y: auto;
-  height: 92vh;
+  height: 93vh;
 }
 
 html {
@@ -11,6 +11,6 @@ html {
 
 app-header {
   position: sticky;
-  height: 8vh;
+  height: 7vh;
   width: 100vw;
 }

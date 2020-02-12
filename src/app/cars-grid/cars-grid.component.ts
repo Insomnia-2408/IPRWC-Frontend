@@ -59,14 +59,14 @@ export class CarsGridComponent implements OnInit {
   }
 
   openInfo(car: CarModel) {
-    const modalRef = this.modalService.open(CarsItemComponent,  {size: 'lg'});
+    const modalRef = this.modalService.open(CarsItemComponent,  {size: 'xl', centered: true});
     modalRef.componentInstance.car = car;
     modalRef.componentInstance.isAdmin = this.isAdmin;
   }
 
   openAddCar() {
     if(this.isAdmin) {
-      this.modalService.open(CarsAddComponent, {size: 'xl'});
+      this.modalService.open(CarsAddComponent, {size: 'xl', centered: true});
     }
   }
 

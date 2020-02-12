@@ -3,6 +3,7 @@ import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {NgForm} from '@angular/forms';
 import {BodyType, CarModel, CarType, EnergyLabel, FuelType, Transmission} from '../../models/CarModel';
 import {CarService} from '../../services/CarService';
+import {PopupService} from '../../services/PopupService';
 
 @Component({
   selector: 'app-cars-add',
@@ -34,7 +35,8 @@ export class CarsAddComponent implements OnInit {
 
   constructor(
     private activeModal: NgbActiveModal,
-    private service: CarService
+    private service: CarService,
+    private popupService: PopupService
   ) { }
 
   ngOnInit() {
@@ -45,12 +47,15 @@ export class CarsAddComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    let car = new CarModel(
-      form.value.carType, form.value.brand, form.value.mileage, form.value.options, form.value.transmission, form.value.fuelType,
-      form.value.buildYear, form.value.doors, form.value.model, form.value.numberplate, form.value.bodyType, form.value.motorType,
-      form.value.horsepower, form.value.seats, form.value.gears, form.value.energyLabel, form.value.apk, form.value.imagePath, form.value.price);
-    this.service.add(car);
-    this.activeModal.close();
+
+    if(form.valid) {
+      let car = this.service.createCarFromForm(form);
+      this.service.add(car);
+      this.activeModal.close();
+    } else {
+      this.popupService.dangerPopup("Please enter valid information.")
+    }
+
   }
 
 }

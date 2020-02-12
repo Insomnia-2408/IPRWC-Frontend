@@ -8,6 +8,7 @@ import {PopupService} from '../../services/PopupService';
 import {Product} from '../../models/Product';
 import {ProductType} from '../../models/ProductType';
 import {error} from 'util';
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-cars-item',
@@ -49,7 +50,6 @@ export class CarsItemComponent implements OnInit {
   }
 
   toggleEdit() {
-    console.log("Edit toggled");
     this.editMode = !this.editMode;
   }
 
@@ -62,5 +62,17 @@ export class CarsItemComponent implements OnInit {
       this.popupService.infoPopup(this.car.model + " was not deleted.");
       this.activeModal.close();
     })
+  }
+
+  onSubmit(form: NgForm) {
+    if(form.valid) {
+      let editedCar = this.service.createCarFromForm(form);
+      editedCar.id = this.car.id;
+      this.service.edit(editedCar);
+      this.activeModal.close();
+    } else {
+      this.popupService.dangerPopup("Please enter valid information.")
+    }
+    this.toggleEdit();
   }
 }
