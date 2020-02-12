@@ -18,7 +18,7 @@
       </div>
       <div class="col">State: </div>
       <div class="col">
-        <select name="carType" class="form-control" required ngModel>
+        <select name="carType" class="form-control" required ngModel="{{carType}}">
           <option value="NEW">New</option>
           <option value="OCCASION">Occasion</option>
           <option value="SHOWMODEL">Showmodel</option>
@@ -37,7 +37,7 @@
       </div>
       <div class="col">Body: </div>
       <div class="col">
-        <select name="bodyType" class="form-control" required ngModel>
+        <select name="bodyType" class="form-control" required ngModel="{{bodyType}}">
           <option value="SEDAN">Sedan</option>
           <option value="COUPE">Coupe</option>
           <option value="SUV">SUV</option>
@@ -69,20 +69,20 @@
       </div>
       <div class="col">Transmission: </div>
       <div class="col">
-        <select name="transmission" class="form-control" required ngModel>
+        <select name="transmission" class="form-control" required ngModel="{{transmission}}">
           <option value="MANUAL">Manual</option>
           <option value="AUTOMATIC">Automatic</option>
           <option value="SEMI-AUTOMATIC">Semi-automatic</option>
         </select>
       </div>
       <div class="col">Seats: </div><div class="col">
-      <input type="number" min="1" name="seats" class="form-control" placeholder="Enter amount seats" required ngModel>
+      <input type="number" min="2" name="seats" class="form-control" placeholder="Enter amount seats" required ngModel>
     </div>
     </div>
     <div class="row">
       <div class="col">Fuel: </div>
       <div class="col">
-        <select name="fuelType" class="form-control" required ngModel>
+        <select name="fuelType" class="form-control" required ngModel="{{fuelType}}">
           <option value="GASOLINE">Gasoline</option>
           <option value="DIESEL">Diesel</option>
           <option value="ELECTRIC">Electric</option>
@@ -101,7 +101,7 @@
     <div class="row">
       <div class="col">Energy label: </div>
       <div class="col">
-        <select name="energyLabel" class="form-control" ngModel>
+        <select name="energyLabel" class="form-control" ngModel="{{energyLabel}}">
           <option value="A">A</option>
           <option value="B">B</option>
           <option value="C">C</option>
@@ -122,6 +122,6 @@
   </div>
 </div>
 <div class="modal-footer">
-  <button type="submit" class="btn btn-secondary">Add car</button>
+  <button type="submit" class="btn btn-dark">Add car</button>
 </div>
 </form>

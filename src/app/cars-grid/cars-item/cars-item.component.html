@@ -37,13 +37,13 @@
     </div>
   </div>
   <div *ngIf="!editMode" class="modal-footer">
-    <button *ngIf="!isAdmin" class="btn btn-primary" (click)="addToCart()">Add to cart</button>
-    <button *ngIf="isAdmin" class="btn btn-primary" (click)="toggleEdit()">Edit</button>
+    <button *ngIf="!isAdmin" class="btn btn-dark" (click)="addToCart()">Add to cart</button>
+    <button *ngIf="isAdmin" class="btn btn-dark" (click)="toggleEdit()">Edit</button>
     <button *ngIf="isAdmin" class="btn btn-danger" (click)="removeCar()">Remove</button>
   </div>
 
  <form *ngIf="editMode" (ngSubmit)="onSubmit(f)" #f="ngForm">
-   <div class="modal-body">
+   <div class="modal-body text-left">
      <label for="image">Image:</label>
      <input type="text" name="imagePath" id="image" class="form-control" placeholder="Enter the address of the image" ngModel="{{car.imagePath}}">
      <br>
@@ -164,6 +164,6 @@
    </div>
    <div class="modal-footer">
      <button type="submit" class="btn btn-warning">Edit car</button>
-     <button class="btn btn-secondary" (click)="toggleEdit()">Cancel</button>
+     <button class="btn btn-dark" (click)="toggleEdit()">Cancel</button>
    </div>
  </form>

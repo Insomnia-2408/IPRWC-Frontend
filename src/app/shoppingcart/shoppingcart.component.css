@@ -10,3 +10,22 @@ ul {
   max-height: 72vh;
   overflow-y: auto;
 }
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+
+  opacity: 1;
+
+}
+
+.container {
+  padding: 0 2% 0;
+}
+
+.amount {
+  max-width: 50%;
+}
+
+.row {
+  padding: 2% 0 2% 2%;
+}

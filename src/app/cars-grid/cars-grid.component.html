@@ -2,11 +2,11 @@
   <li *ngFor="let car of cars">
     <div class="card h-100" (click)="openInfo(car)">
       <img class="card-img-top car-img" [src]="car.imagePath">
-      <p class="card-text">{{car.brand}}&nbsp;{{ car.model }}&nbsp;&nbsp;&nbsp;&nbsp;{{car.price | currency:'EUR'}}</p>
+      <p class="card-text mt-auto">{{car.brand}}&nbsp;{{ car.model }}&nbsp;&nbsp;&nbsp;&nbsp;{{car.price | currency:'EUR'}}</p>
     </div>
   </li>
 </ul>
 <p *ngIf="!carsLoaded">
   Loading cars...
 </p>
-<button *ngIf="isAdmin" class="btn btn-primary float my-float" (click)="openAddCar()">+</button>
+<button *ngIf="isAdmin" class="btn btn-dark float my-float" (click)="openAddCar()">+</button>

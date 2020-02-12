@@ -5,7 +5,6 @@
   grid-row-gap: 5px;
   list-style: none;
   width: 80vw;
-  padding: 0;
   margin: auto;
 }
 
@@ -17,16 +16,12 @@
 }
 
 .card {
-  padding: 3% 5%;
+  padding: 2% 5%;
 }
 
 .car-img {
   max-width: 100%;
 }
-
-/*table {*/
-/*  backdrop-filter: grayscale(0.2) opacity(0.8);*/
-/*}*/
 
 h1, p {
   text-align: center;

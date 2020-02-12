@@ -2,16 +2,29 @@
   <ul class="list-group">
     <li *ngFor="let item of shoppingList" class="list-group-item d-flex justify-content-between align-items-center">
       <img class="img-thumbnail" [src]="item.imagePath">
-      <h3>{{item.name}}</h3>
-      <label for="amount">Amount: </label>
-      <input type="number" id="amount" min="1" [value]="item.amount" onkeydown="return false" (change)="setAmount(item, $event)" />
-      <span class="badge badge-primary badge-pill"> {{item.price | currency:'EUR'}}</span>
-      <button class="btn btn-danger" (click)="remove(item)">Remove</button>
+      <div class="container">
+        <div class="row">
+          <h3>{{item.name}}</h3>
+        </div>
+        <div class="row">
+          <div class="col form-inline">
+            <label class="col-form-label" for="amount">Amount:&nbsp;</label>
+            <input type="number" class="form-control amount" id="amount" min="1" [value]="item.amount" onkeydown="return false"
+                   (change)="setAmount(item, $event)" />
+          </div>
+          <div class="col">
+            <span class="badge badge-dark badge-pill float-right"> {{item.price | currency:'EUR'}}</span>
+          </div>
+        </div>
+        <div class="row btn-toolbar">
+          <button class="btn btn-danger btn-block" (click)="remove(item)">Remove</button>
+        </div>
+      </div>
     </li>
   </ul>
   <p class="text-center">Total price: {{total | currency:'EUR'}}</p>
   <div class="btn-toolbar">
-    <button class="btn btn-block btn-primary">Place order</button>
+    <button class="btn btn-block btn-dark">Place order</button>
   </div>
 </div>
 <div *ngIf="shoppingList == undefined" class="container">

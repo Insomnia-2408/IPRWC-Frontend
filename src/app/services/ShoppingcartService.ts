@@ -1,10 +1,11 @@
-import {Injectable} from '@angular/core';
+import {EventEmitter, Injectable} from '@angular/core';
 import {CookieService} from 'ngx-cookie-service';
 import {Product} from '../models/Product';
 
 @Injectable({providedIn: 'root'})
 export class ShoppingcartService {
   shoppinglist = [];
+  listAltered = new EventEmitter();
 
   constructor(private cookieService: CookieService) { }
 
@@ -15,6 +16,7 @@ export class ShoppingcartService {
   addItem(product: Product) {
     this.shoppinglist.push(product);
     localStorage.setItem('shoppinglist', JSON.stringify(this.shoppinglist));
+    this.listAltered.emit();
   }
 
   setAmount(item: Product, amount: number) {
@@ -24,6 +26,7 @@ export class ShoppingcartService {
       }
     }
     localStorage.setItem('shoppinglist', JSON.stringify(this.shoppinglist));
+    this.listAltered.emit();
   }
 
   removeItem(item: Product) {
@@ -33,6 +36,7 @@ export class ShoppingcartService {
       }
     }
     localStorage.setItem('shoppinglist', JSON.stringify(this.shoppinglist));
+    this.listAltered.emit();
   }
 
 }
