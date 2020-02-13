@@ -49,6 +49,7 @@ h1, p {
 
   .car-ul {
     grid-template-columns: 1fr;
+    margin: 0;
   }
 
   .car-ul li:hover {

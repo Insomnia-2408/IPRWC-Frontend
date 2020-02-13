@@ -10,7 +10,7 @@ import {ShoppingcartService} from '../services/ShoppingcartService';
 export class HeaderComponent implements OnInit {
   isAdmin = false;
   amountItems = 0;
-  isCollapsed: boolean;
+  isCollapsed: boolean = true;
 
   constructor(
     private service: UserService,

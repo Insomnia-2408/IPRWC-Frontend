@@ -29,3 +29,24 @@ input[type=number]::-webkit-outer-spin-button {
 .row {
   padding: 2% 0 2% 2%;
 }
+
+@media (max-width: 1000px) {
+
+  .img-thumbnail {
+    max-width: 100%;
+  }
+
+  .d-flex {
+    display: block !important;
+  }
+
+  ul {
+    font-size: 0.8em;
+    max-height: 78vh;
+  }
+
+  h3 {
+    font-size: 1.5em;
+  }
+
+}
