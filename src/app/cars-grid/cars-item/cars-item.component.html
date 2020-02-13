@@ -37,9 +37,11 @@
     </div>
   </div>
   <div *ngIf="!editMode" class="modal-footer">
-    <button class="btn btn-dark" (click)="addToCart()">Add to cart</button>
-    <button *ngIf="isAdmin" class="btn btn-warning" (click)="toggleEdit()">Edit</button>
-    <button *ngIf="isAdmin" class="btn btn-danger" (click)="removeCar()">Remove</button>
+    <div class="btn-group">
+      <button class="btn btn-dark" (click)="addToCart()">Add to cart</button>
+      <button *ngIf="isAdmin" class="btn btn-dark" (click)="toggleEdit()">Edit</button>
+      <button *ngIf="isAdmin" class="btn btn-dark" (click)="removeCar()">Remove</button>
+    </div>
   </div>
 
  <form *ngIf="editMode" (ngSubmit)="onSubmit(f)" #f="ngForm">
@@ -148,7 +150,9 @@
      </div>
    </div>
    <div class="modal-footer">
-     <button class="btn btn-dark" (click)="toggleEdit()">Cancel</button>
-     <button type="submit" class="btn btn-danger">Edit car</button>
+     <div class="btn-group">
+       <button class="btn btn-dark" (click)="toggleEdit()">Cancel</button>
+       <button type="submit" class="btn btn-dark">Edit car</button>
+     </div>
    </div>
  </form>

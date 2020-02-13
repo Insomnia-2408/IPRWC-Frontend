@@ -82,4 +82,5 @@ export class CarsItemComponent implements OnInit {
     }
     this.toggleEdit();
   }
+
 }

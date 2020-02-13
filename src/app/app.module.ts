@@ -13,8 +13,6 @@ import { HomeComponent } from './home/home.component';
 import {RouterModule, Routes} from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { UserdataComponent } from './userdata/userdata.component';
-import { OrderListComponent } from './order-list/order-list.component';
-import { CarServicesComponent } from './car-services/car-services.component';
 import { CarsItemComponent } from './cars-grid/cars-item/cars-item.component';
 import { ShoppingcartComponent } from './shoppingcart/shoppingcart.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
@@ -30,8 +28,6 @@ const appRoutes: Routes = [
   {path: 'register', component: RegisterComponent},
   {path: 'cars', component: CarsGridComponent},
   {path: 'userdata', component: UserdataComponent},
-  {path: 'orders', component: OrderListComponent},
-  {path: 'car-services', component: CarServicesComponent},
   {path: 'shoppingcart', component: ShoppingcartComponent},
   {path: 'not-found', component: PageNotFoundComponent},
   {path: '**', redirectTo: '/not-found'}
@@ -48,8 +44,6 @@ const appRoutes: Routes = [
     HomeComponent,
     PageNotFoundComponent,
     UserdataComponent,
-    OrderListComponent,
-    CarServicesComponent,
     CarsItemComponent,
     ShoppingcartComponent,
     AlertPopupComponent,

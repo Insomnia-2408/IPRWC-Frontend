@@ -28,9 +28,9 @@
     </div>
     <small type="form-text text-muted">Your address information will only be used to send your orders.</small>
   </div>
-  <div class="form-group">
-    <button *ngIf="!editMode" type="submit" class=" btn btn-primary btn-block">Edit userdata</button>
-    <button *ngIf="!checkIfChanged() && editMode" (click)="editMode = !editMode" class="btn btn-primary btn-block">Cancel</button>
-    <button *ngIf="checkIfChanged() && editMode" type="submit" class="btn btn-primary btn-block">Save changes</button>
+  <div class="form-group btn-group">
+    <button *ngIf="!editMode" type="submit" class=" btn btn-dark">Edit userdata</button>
+    <button *ngIf="editMode" (click)="editMode = !editMode" class="btn btn-dark">Cancel</button>
+    <button *ngIf="checkIfChanged() && editMode" type="submit" class="btn btn-dark">Save changes</button>
   </div>
 </form>
