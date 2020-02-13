@@ -7,7 +7,6 @@ import {ShoppingcartService} from '../../services/ShoppingcartService';
 import {PopupService} from '../../services/PopupService';
 import {Product} from '../../models/Product';
 import {ProductType} from '../../models/ProductType';
-import {error} from 'util';
 import {NgForm} from '@angular/forms';
 
 @Component({

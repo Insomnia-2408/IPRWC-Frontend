@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {UserService} from '../services/UserService';
-import {UserRole} from '../models/UserRole';
 import {ShoppingcartService} from '../services/ShoppingcartService';
 
 @Component({

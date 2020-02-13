@@ -1,6 +1,6 @@
-import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {ServerModel} from '../models/ServerModel';
-import {EventEmitter, Injectable} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {CookieService} from 'ngx-cookie-service';
 import {PopupService} from './PopupService';
 import {UserModel} from '../models/UserModel';

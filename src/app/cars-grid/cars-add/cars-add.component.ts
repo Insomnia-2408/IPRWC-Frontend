@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {NgForm} from '@angular/forms';
-import {BodyType, CarModel, CarType, EnergyLabel, FuelType, Transmission} from '../../models/CarModel';
+import {BodyType, CarType, EnergyLabel, FuelType, Transmission} from '../../models/CarModel';
 import {CarService} from '../../services/CarService';
 import {PopupService} from '../../services/PopupService';
 
