@@ -41,4 +41,9 @@ export class ShoppingcartService {
     this.listAltered.emit();
   }
 
+  emptyList() {
+    this.shoppinglist = new Array<Product>();
+    localStorage.setItem('shoppinglist', JSON.stringify(this.shoppinglist));
+    this.listAltered.emit();
+  }
 }

@@ -24,6 +24,10 @@ export class ShoppingcartComponent implements OnInit {
     if(this.shoppingcartService.shoppinglist != null) {
       this.getShoppingList();
     }
+
+    this.shoppingcartService.listAltered.subscribe( result => {
+      this.getShoppingList();
+    });
   }
 
   getShoppingList() {
@@ -54,6 +58,7 @@ export class ShoppingcartComponent implements OnInit {
 
   order() {
     if(this.userService.isLoggedIn()) {
+      this.shoppingcartService.emptyList();
       this.popupService.succesPopup("Order was placed!");
     } else {
       this.popupService.dangerPopup("You need to be logged in to place an order, log in or create an account.");
