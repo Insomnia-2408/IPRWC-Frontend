@@ -17,6 +17,7 @@
 .table {
   text-align: left;
   font-size: 1em;
+  width: 100%;
 }
 
 input[type=date]::-webkit-inner-spin-button {
@@ -36,4 +37,10 @@ input[type=date] {
 
 .btn-group {
   width: 100%;
+}
+
+@media (max-width: 1000px) {
+  .table {
+    font-size: 0.7em;
+  }
 }

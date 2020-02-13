@@ -30,77 +30,77 @@
       </div>
     </div>
     <div class="row">
-      <div class="col">Numberplate: </div>
-      <div class="col">
+      <div class="col-2">Numberplate: </div>
+      <div class="col-2">
         <input type="text" name="numberplate" class="form-control" placeholder="Enter numberplate" required ngModel>
       </div>
-      <div class="col">Brand: </div>
-      <div class="col">
+      <div class="col-2">Brand: </div>
+      <div class="col-2">
         <input type="text" name="brand" class="form-control" placeholder="Enter car brand" required ngModel>
       </div>
-      <div class="col">Body: </div>
-      <div class="col">
+      <div class="col-2">Body: </div>
+      <div class="col-2">
         <select name="bodyType" class="form-control" required ngModel="{{bodyType}}">
           <option *ngFor="let bodyType of bodyTypes" [value]="bodyType">{{bodyType | titlecase}}</option>
         </select>
       </div>
     </div>
     <div class="row">
-      <div class="col">Mileage: </div>
-      <div class="col">
+      <div class="col-2">Mileage: </div>
+      <div class="col-2">
         <input type="number" min="1" name="mileage" class="form-control" placeholder="Enter mileage" required ngModel>
       </div>
-      <div class="col">Motor: </div>
-      <div class="col">
+      <div class="col-2">Motor: </div>
+      <div class="col-2">
         <input type="text" name="motorType" class="form-control" placeholder="Enter motor type" ngModel>
       </div>
-      <div class="col">Options: </div><div class="col">
+      <div class="col-2">Options: </div><div class="col-2">
       <input type="text" name="options" class="form-control" placeholder="Enter options" ngModel>
     </div>
     </div>
     <div class="row">
-      <div class="col">Horsepower: </div>
-      <div class="col">
+      <div class="col-2">Horsepower: </div>
+      <div class="col-2">
         <input type="number" min="1" name="horsepower" class="form-control" placeholder="Enter horsepower" ngModel>
       </div>
-      <div class="col">Transmission: </div>
-      <div class="col">
+      <div class="col-2">Transmission: </div>
+      <div class="col-2">
         <select name="transmission" class="form-control" required ngModel="{{transmission}}">
           <option *ngFor="let transmission of transmissions" [value]="transmission">{{transmission | titlecase}}</option>
         </select>
       </div>
-      <div class="col">Seats: </div><div class="col">
+      <div class="col-2">Seats: </div><div class="col-2">
       <input type="number" min="2" name="seats" class="form-control" placeholder="Enter amount seats" required ngModel>
     </div>
     </div>
     <div class="row">
-      <div class="col">Fuel: </div>
-      <div class="col">
+      <div class="col-2">Fuel: </div>
+      <div class="col-2">
         <select name="fuelType" class="form-control" required ngModel="{{fuelType}}">
           <option *ngFor="let fuelType of fuelTypes" [value]="fuelType">{{fuelType | titlecase}}</option>
         </select>
       </div>
-      <div class="col">Gears: </div>
-      <div class="col">
+      <div class="col-2">Gears: </div>
+      <div class="col-2">
       <input type="number" min="1" name="gears" class="form-control" placeholder="Enter amount gears" required ngModel>
     </div>
-      <div class="col">Build year: </div>
-      <div class="col">
+      <div class="col-2">Build year: </div>
+      <div class="col-2">
         <input type="number" min="1950" name="buildYear" class="form-control" placeholder="Enter build year" required ngModel>
       </div>
     </div>
     <div class="row">
-      <div class="col">Energy label: </div>
-      <div class="col">
+      <div class="col-2">Energy label: </div>
+      <div class="col-2">
         <select name="energyLabel" class="form-control" ngModel="{{energyLabel}}">
           <option *ngFor="let energyLabel of energyLabels" [value]="energyLabel">{{energyLabel | titlecase}}</option>
         </select>
       </div>
-      <div class="col">APK: </div><div class="col">
+      <div class="col-2">APK: </div><div class="col-2">
       <input type="date" name="apk" class="form-control" placeholder="Enter APK" ngModel>
     </div>
-      <div class="col">Price: </div>
-      <div class="col">
+      <div class="col-2">Price: </div>
+      <div class="col-2">
         <input type="number" min="1" name="price" class="form-control" step="any" placeholder="Enter price" required ngModel>
       </div>
     </div>

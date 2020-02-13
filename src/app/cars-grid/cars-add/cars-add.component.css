@@ -16,3 +16,9 @@ input[type=date] {
   max-width: 13vw;
   padding: 2% 2% 0;
 }
+
+@media (max-width: 1000px) {
+  .table {
+    font-size: 0.7em;
+  }
+}

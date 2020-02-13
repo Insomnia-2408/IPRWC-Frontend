@@ -5,34 +5,34 @@
     <img class="car-item-img" [src]="car.imagePath">
     <div class="table">
       <div class="row">
-        <div class="col">Model: </div><div class="col">{{car.model}}</div>
-        <div class="col">Doors: </div><div class="col">{{car.doors}}</div>
-        <div class="col">State: </div><div class="col">{{car.carType | lowercase}}</div>
+        <div class="col-2">Model: </div><div class="col-2">{{car.model}}</div>
+        <div class="col-2">Doors: </div><div class="col-2">{{car.doors}}</div>
+        <div class="col-2">State: </div><div class="col-2">{{car.carType | lowercase}}</div>
       </div>
       <div class="row">
-        <div class="col">Numberplate: </div><div class="col">{{car.numberplate}}</div>
-        <div class="col">Brand: </div><div class="col">{{car.brand}}</div>
-        <div class="col">Body: </div><div class="col">{{car.bodyType | lowercase}}</div>
+        <div class="col-2">Numberplate: </div><div class="col-2">{{car.numberplate}}</div>
+        <div class="col-2">Brand: </div><div class="col-2">{{car.brand}}</div>
+        <div class="col-2">Body: </div><div class="col-2">{{car.bodyType | lowercase}}</div>
       </div>
       <div class="row">
-        <div class="col">Mileage: </div><div class="col">{{car.mileage}}</div>
-        <div class="col">Motor: </div><div class="col">{{car.motorType}}</div>
-        <div class="col">Options: </div><div class="col">{{car.options | lowercase}}</div>
+        <div class="col-2">Mileage: </div><div class="col-2">{{car.mileage}}</div>
+        <div class="col-2">Motor: </div><div class="col-2">{{car.motorType}}</div>
+        <div class="col-2">Options: </div><div class="col-2">{{car.options | lowercase}}</div>
       </div>
       <div class="row">
-        <div class="col">Horsepower: </div><div class="col">{{car.horsepower}}</div>
-        <div class="col">Transmission: </div><div class="col">{{car.transmission | lowercase}}</div>
-        <div class="col">Seats: </div><div class="col">{{car.seats}}</div>
+        <div class="col-2">Horsepower: </div><div class="col-2">{{car.horsepower}}</div>
+        <div class="col-2">Transmission: </div><div class="col-2">{{car.transmission | lowercase}}</div>
+        <div class="col-2">Seats: </div><div class="col-2">{{car.seats}}</div>
       </div>
       <div class="row">
-        <div class="col">Fuel: </div><div class="col">{{car.fuelType | lowercase}}</div>
-        <div class="col">Gears: </div><div class="col">{{car.gears}}</div>
-        <div class="col">Build year: </div><div class="col">{{car.buildYear}}</div>
+        <div class="col">Fuel: </div><div class="col-2">{{car.fuelType | lowercase}}</div>
+        <div class="col-2">Gears: </div><div class="col-2">{{car.gears}}</div>
+        <div class="col-2">Build year: </div><div class="col-2">{{car.buildYear}}</div>
       </div>
       <div class="row">
-        <div class="col">Energy label: </div><div class="col">{{car.energyLabel}}</div>
-        <div class="col">APK: </div><div class="col">{{car.apk | date}}</div>
-        <div class="col">Price: </div><div class="col">{{car.price | currency:'EUR'}}</div>
+        <div class="col-2">Energy label: </div><div class="col-2">{{car.energyLabel}}</div>
+        <div class="col-2">APK: </div><div class="col-2">{{car.apk | date}}</div>
+        <div class="col-2">Price: </div><div class="col-2">{{car.price | currency:'EUR'}}</div>
       </div>
     </div>
   </div>
@@ -57,93 +57,93 @@
      </div>
      <div class="table">
        <div class="row">
-         <div class="col">Model: </div>
-         <div class="col">
+         <div class="col-2">Model: </div>
+         <div class="col-2">
            <input type="text" name="model" class="form-control" placeholder="Enter car model" required ngModel="{{car.model}}">
          </div>
-         <div class="col">Doors: </div>
-         <div class="col">
+         <div class="col-2">Doors: </div>
+         <div class="col-2">
            <input type="number" min="1" name="doors" class="form-control" placeholder="Enter amount of doors" required ngModel="{{car.doors}}">
          </div>
-         <div class="col">State: </div>
-         <div class="col">
+         <div class="col-2">State: </div>
+         <div class="col-2">
            <select name="carType" class="form-control" required ngModel="{{car.carType}}">
              <option *ngFor="let carType of carTypes" [value]="carType">{{carType | titlecase}}</option>
            </select>
          </div>
        </div>
        <div class="row">
-         <div class="col">Numberplate: </div>
-         <div class="col">
+         <div class="col-2">Numberplate: </div>
+         <div class="col-2">
            <input type="text" name="numberplate" class="form-control" placeholder="Enter numberplate" required ngModel="{{car.numberplate}}">
          </div>
-         <div class="col">Brand: </div>
-         <div class="col">
+         <div class="col-2">Brand: </div>
+         <div class="col-2">
            <input type="text" name="brand" class="form-control" placeholder="Enter car brand" required ngModel="{{car.brand}}">
          </div>
-         <div class="col">Body: </div>
-         <div class="col">
+         <div class="col-2">Body: </div>
+         <div class="col-2">
            <select name="bodyType" class="form-control" required ngModel="{{car.bodyType}}">
              <option *ngFor="let bodyType of bodyTypes" [value]="bodyType">{{bodyType | titlecase}}</option>
            </select>
          </div>
        </div>
        <div class="row">
-         <div class="col">Mileage: </div>
-         <div class="col">
+         <div class="col-2">Mileage: </div>
+         <div class="col-2">
            <input type="number" min="1" name="mileage" class="form-control" placeholder="Enter mileage" required ngModel="{{car.mileage}}">
          </div>
-         <div class="col">Motor: </div>
-         <div class="col">
+         <div class="col-2">Motor: </div>
+         <div class="col-2">
            <input type="text" name="motorType" class="form-control" placeholder="Enter motor type" ngModel="{{car.motorType}}">
          </div>
-         <div class="col">Options: </div><div class="col">
+         <div class="col-2">Options: </div><div class="col-2">
          <input type="text" name="options" class="form-control" placeholder="Enter options" ngModel="{{car.options}}">
        </div>
        </div>
        <div class="row">
-         <div class="col">Horsepower: </div>
-         <div class="col">
+         <div class="col-2">Horsepower: </div>
+         <div class="col-2">
            <input type="number" min="1" name="horsepower" class="form-control" placeholder="Enter horsepower" ngModel="{{car.horsepower}}">
          </div>
-         <div class="col">Transmission: </div>
-         <div class="col">
+         <div class="col-2">Transmission: </div>
+         <div class="col-2">
            <select name="transmission" class="form-control" required ngModel="{{car.transmission}}">
              <option *ngFor="let transmission of transmissions" [value]="transmission">{{transmission | titlecase}}</option>
            </select>
          </div>
-         <div class="col">Seats: </div><div class="col">
+         <div class="col-2">Seats: </div><div class="col-2">
          <input type="number" min="2" name="seats" class="form-control" placeholder="Enter amount seats" required ngModel="{{car.seats}}">
        </div>
        </div>
        <div class="row">
-         <div class="col">Fuel: </div>
-         <div class="col">
+         <div class="col-2">Fuel: </div>
+         <div class="col-2">
            <select name="fuelType" class="form-control" required ngModel="{{car.fuelType}}">
              <option *ngFor="let fuelType of fuelTypes" [value]="fuelType">{{fuelType | titlecase}}</option>
            </select>
          </div>
-         <div class="col">Gears: </div>
-         <div class="col">
+         <div class="col-2">Gears: </div>
+         <div class="col-2">
            <input type="number" min="1" name="gears" class="form-control" placeholder="Enter amount gears" required ngModel="{{car.gears}}">
          </div>
-         <div class="col">Build year: </div>
-         <div class="col">
+         <div class="col-2">Build year: </div>
+         <div class="col-2">
            <input type="number" min="1950" name="buildYear" class="form-control" placeholder="Enter build year" required ngModel="{{car.buildYear}}">
          </div>
        </div>
        <div class="row">
-         <div class="col">Energy label: </div>
-         <div class="col">
+         <div class="col-2">Energy label: </div>
+         <div class="col-2">
            <select name="energyLabel" class="form-control" ngModel="{{car.energyLabel}}">
              <option *ngFor="let energyLabel of energyLabels" [value]="energyLabel">{{energyLabel | titlecase}}</option>
            </select>
          </div>
-         <div class="col">APK: </div><div class="col">
+         <div class="col-2">APK: </div><div class="col-2">
          <input type="date" name="apk" class="form-control" placeholder="Enter APK" ngModel="{{car.apk}}">
        </div>
-         <div class="col">Price: </div>
-         <div class="col">
+         <div class="col-2">Price: </div>
+         <div class="col-2">
            <input type="number" min="1" name="price" class="form-control" step="any" placeholder="Enter price" required ngModel="{{car.price}}">
          </div>
        </div>
