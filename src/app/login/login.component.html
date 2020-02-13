@@ -1,4 +1,4 @@
-<div class="container" *ngIf="!service.isLoggedIn()">
+<div class="container" *ngIf="!isLoggedIn()">
   <h1>Login</h1>
   <form (ngSubmit)="onSubmit(f)" #f="ngForm">
     <div class="form-group">

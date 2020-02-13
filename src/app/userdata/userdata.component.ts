@@ -68,7 +68,7 @@ export class UserdataComponent implements OnInit {
     this.house_number = address[1];
   }
 
-  private checkIfChanged() {
+  checkIfChanged() {
 
     if(this.user.name == this.firstname + ", " + this.lastname &&
       this.user.email == this.email &&

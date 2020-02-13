@@ -11,9 +11,10 @@ import {PopupService} from '../services/PopupService';
 })
 export class LoginComponent implements OnInit, DoCheck {
 
-  constructor(private service: UserService,
-              private router: Router,
-              private popupService: PopupService
+  constructor(
+    private service: UserService,
+    private router: Router,
+    private popupService: PopupService
   ) { }
 
   onSubmit(form: NgForm) {
@@ -42,4 +43,7 @@ export class LoginComponent implements OnInit, DoCheck {
     }
   }
 
+  isLoggedIn() {
+    return this.service.isLoggedIn();
+  }
 }
