@@ -3,11 +3,13 @@ import {ShoppingcartService} from '../services/ShoppingcartService';
 import {Product} from '../models/Product';
 import {UserService} from '../services/UserService';
 import {PopupService} from '../services/PopupService';
+import {CurrencyPipe} from '@angular/common';
 
 @Component({
   selector: 'app-shoppingcart',
   templateUrl: './shoppingcart.component.html',
-  styleUrls: ['./shoppingcart.component.css']
+  styleUrls: ['./shoppingcart.component.css'],
+  providers: [CurrencyPipe]
 })
 export class ShoppingcartComponent implements OnInit {
   shoppingList = [];
@@ -16,7 +18,8 @@ export class ShoppingcartComponent implements OnInit {
   constructor(
     private shoppingcartService: ShoppingcartService,
     private userService: UserService,
-    private popupService: PopupService
+    private popupService: PopupService,
+    private cp: CurrencyPipe
   ) { }
 
   ngOnInit() {
@@ -58,8 +61,15 @@ export class ShoppingcartComponent implements OnInit {
 
   order() {
     if(this.userService.isLoggedIn()) {
-      this.shoppingcartService.emptyList();
-      this.popupService.succesPopup("Order was placed!");
+
+      let totalText = this.cp.transform(this.total.toString(), 'EUR');
+      this.popupService.showConfirmPopup("Are you certain you want to place this order? Total price: " + totalText).then( promise => {
+        this.shoppingcartService.emptyList();
+        this.popupService.succesPopup("Order was placed!");
+      }, cancel => {
+        this.popupService.infoPopup("The order was not placed");
+      });
+
     } else {
       this.popupService.dangerPopup("You need to be logged in to place an order, log in or create an account.");
     }
