@@ -1,14 +1,19 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a routerLink="/" class="navbar-brand">Home</a>
-  <div class="navbar-collapse">
+  <a routerLink="/" class="navbar-brand" (click)="isCollapsed = false">Home</a>
+  <button class="navbar-toggler custom-toggler" type="button" (click)="toggleCollapse()"
+          [attr.aria-expanded]="!isCollapsed"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" [ngbCollapse]="isCollapsed">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" routerLink="/cars">Cars</a>
+        <a class="nav-link" routerLink="/cars" (click)="toggleCollapse()">Cars</a>
       </li>
     </ul>
     <ul class="navbar-nav ml-auto">
       <li *ngIf="!isAdmin" class="nav-item">
-        <a class="nav-link" routerLink="/shoppingcart">
+        <a class="nav-link" routerLink="/shoppingcart" (click)="toggleCollapse()">
           <img class="cart" src="../../assets/images/shoppingcart.png">
           <span class="badge badge-dark">{{amountItems}}</span>
         </a>
@@ -17,13 +22,13 @@
         <div class="d-inline-block" ngbDropdown #myDrop="ngbDropdown">
           <button class="btn" id="dropdownManual" ngbDropdownAnchor (focus)="myDrop.open()">Account</button>
           <div *ngIf="isLoggedIn()" ngbDropdownMenu>
-            <a routerLink="/userdata" ngbDropdownItem>Userdata</a>
+            <a routerLink="/userdata" ngbDropdownItem (click)="toggleCollapse()">Userdata</a>
 <!--            <a routerLink="/orders" ngbDropdownItem>My orders</a>-->
-            <a routerLink="/" ngbDropdownItem (click)="destroySession()">Log out</a>
+            <a routerLink="/" ngbDropdownItem (click)="destroySession(); toggleCollapse()">Log out</a>
           </div>
           <div *ngIf="!isLoggedIn()" ngbDropdownMenu aria-labelledby="dropdownManual">
-            <a routerLink="/login" ngbDropdownItem>Log in</a>
-            <a routerLink="/register" ngbDropdownItem>Register</a>
+            <a routerLink="/login" ngbDropdownItem (click)="toggleCollapse()">Log in</a>
+            <a routerLink="/register" ngbDropdownItem (click)="toggleCollapse()">Register</a>
           </div>
         </div>
       </li>

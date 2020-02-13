@@ -1,6 +1,6 @@
 import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import {ServerModel} from '../models/ServerModel';
-import {Injectable} from '@angular/core';
+import {EventEmitter, Injectable} from '@angular/core';
 import {CookieService} from 'ngx-cookie-service';
 import {PopupService} from './PopupService';
 import {UserModel} from '../models/UserModel';
@@ -28,7 +28,6 @@ export class UserService {
           this.handleError(error);
         }
       );
-
   }
 
   async register(formData: {email: string, password: string, name: string, address: string}) {
@@ -48,15 +47,20 @@ export class UserService {
   }
 
   destroySession() {
-    var url = "http://" + this.host + ":" + this.port + "/logout";
-    let headers = new HttpHeaders();
-    headers.set('token', this.cookies.get('token'));
+    var url = "http://" + this.host + ":" + this.port + "/auth/logout";
 
-    this.http.delete(url, { headers: headers}).subscribe();
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'token': this.cookies.get('token')
+      })
+    };
+
+    this.http.delete(url, httpOptions).subscribe( response => {
+      this.popup.succesPopup("Successfully logged out.");
+    });
 
     this.user = null;
     this.cookies.delete('token');
-    location.reload();
   }
 
   handleError(error: any) {

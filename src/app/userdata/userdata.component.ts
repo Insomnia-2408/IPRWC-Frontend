@@ -59,20 +59,20 @@ export class UserdataComponent implements OnInit {
   }
 
   private setInfo() {
-    let names = this.user.name.split(" ");
-    this.firstname = names[0];
-    this.lastname = names[1];
+    let names = this.user.name.split(", ");
+    this.lastname = names[0];
+    this.firstname = names[1];
     this.email = this.user.email;
-    let address = this.user.address.split(" ");
+    let address = this.user.address.split(", ");
     this.zipcode = address[0];
     this.house_number = address[1];
   }
 
   private checkIfChanged() {
 
-    if(this.user.name == this.firstname + " " + this.lastname &&
+    if(this.user.name == this.firstname + ", " + this.lastname &&
       this.user.email == this.email &&
-      this.user.address == this.zipcode + " " + this.house_number) {
+      this.user.address == this.zipcode + ", " + this.house_number) {
         return false;
     } else {
       return true;
@@ -81,9 +81,9 @@ export class UserdataComponent implements OnInit {
   }
 
   private updateThisUser() {
-    this.user.name = this.firstname + " " + this.lastname;
+    this.user.name = this.firstname + ", " + this.lastname;
     this.user.email = this.email;
-    this.user.address = this.zipcode + " " + this.house_number;
+    this.user.address = this.zipcode + ", " + this.house_number;
   }
 
 }

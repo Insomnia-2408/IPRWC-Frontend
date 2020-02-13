@@ -24,7 +24,7 @@
   </ul>
   <p class="text-center">Total price: {{total | currency:'EUR'}}</p>
   <div class="btn-toolbar">
-    <button class="btn btn-block btn-dark">Place order</button>
+    <button class="btn btn-block btn-dark" (click)="order()">Place order</button>
   </div>
 </div>
 <div *ngIf="shoppingList == undefined" class="container">

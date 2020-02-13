@@ -11,6 +11,7 @@ import {ShoppingcartService} from '../services/ShoppingcartService';
 export class HeaderComponent implements OnInit {
   isAdmin = false;
   amountItems = 0;
+  isCollapsed: boolean;
 
   constructor(
     private service: UserService,
@@ -22,20 +23,11 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {
-    let self = this;
     this.shoppingcartService.init();
     this.setAmountItems();
     this.shoppingcartService.listAltered.subscribe(result => {
       this.setAmountItems()
     });
-
-    if(this.service.isLoggedIn()) {
-      this.service.setUserInfo(function() {
-        if(self.service.user.userRole == UserRole.ADMIN) {
-          self.isAdmin = true;
-        }
-      });
-    }
   }
 
   setAmountItems() {
@@ -44,5 +36,9 @@ export class HeaderComponent implements OnInit {
 
   destroySession() {
     this.service.destroySession();
+  }
+
+  toggleCollapse() {
+    this.isCollapsed = !this.isCollapsed;
   }
 }

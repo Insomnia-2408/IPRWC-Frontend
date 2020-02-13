@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {ShoppingcartService} from '../services/ShoppingcartService';
 import {Product} from '../models/Product';
-import {audit} from 'rxjs/operators';
+import {UserService} from '../services/UserService';
+import {PopupService} from '../services/PopupService';
 
 @Component({
   selector: 'app-shoppingcart',
@@ -12,7 +13,11 @@ export class ShoppingcartComponent implements OnInit {
   shoppingList = [];
   total = 0;
 
-  constructor(private shoppingcartService: ShoppingcartService) { }
+  constructor(
+    private shoppingcartService: ShoppingcartService,
+    private userService: UserService,
+    private popupService: PopupService
+  ) { }
 
   ngOnInit() {
     this.shoppingcartService.init();
@@ -45,5 +50,13 @@ export class ShoppingcartComponent implements OnInit {
   remove(item: Product) {
     this.shoppingcartService.removeItem(item);
     this.getShoppingList();
+  }
+
+  order() {
+    if(this.userService.isLoggedIn()) {
+      this.popupService.succesPopup("Order was placed!");
+    } else {
+      this.popupService.dangerPopup("You need to be logged in to place an order, log in or create an account.");
+    }
   }
 }

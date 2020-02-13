@@ -44,3 +44,18 @@ h1, p {
 .my-float{
   margin-top:22px;
 }
+
+@media (max-width: 1000px) {
+
+  .car-ul {
+    grid-template-columns: 1fr;
+  }
+
+  .car-ul li:hover {
+    transform: none;
+  }
+
+  .car-ul li:last-child {
+    padding-bottom: 2%;
+  }
+}

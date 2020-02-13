@@ -29,8 +29,8 @@ export class RegisterComponent implements OnInit {
     this.service.register({
       "email": form.value.email,
       "password": form.value.password,
-      "name": form.value.firstname + " " + form.value.lastname,
-      "address": form.value.zipcode + " " + form.value.house_number
+      "name": form.value.lastname + ", " + form.value.firstname,
+      "address": form.value.zipcode + ", " + form.value.house_number
     }).then(r => this.router.navigate(['/login']));
   }
 
