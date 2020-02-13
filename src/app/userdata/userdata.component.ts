@@ -60,8 +60,8 @@ export class UserdataComponent implements OnInit {
 
   private setInfo() {
     let names = this.user.name.split(", ");
-    this.lastname = names[0];
-    this.firstname = names[1];
+    this.lastname = names[1];
+    this.firstname = names[0];
     this.email = this.user.email;
     let address = this.user.address.split(", ");
     this.zipcode = address[0];
