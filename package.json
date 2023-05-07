@@ -22,7 +22,7 @@
     "@ng-bootstrap/ng-bootstrap": "^5.1.5",
     "bootstrap": "^4.4.1",
     "bootstrap4": "0.0.1-security",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "ngx-cookie-service": "^2.3.0",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
